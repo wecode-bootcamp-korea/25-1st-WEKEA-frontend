@@ -4,6 +4,7 @@ import "./Styles/common.scss";
 import "./Styles/reset.scss";
 import "./Styles/variable.scss";
 
+
 import Aside from './Components/Aside/Aside';
 import Footer from './Components/Footer/Footer';
 import Nav from './Components/Nav/Nav';

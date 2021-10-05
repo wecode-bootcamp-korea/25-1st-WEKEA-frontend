@@ -1,0 +1,17 @@
+.blackBar {
+  
+  width: 100%;
+  height: 42px;
+  background-color: black;
+  
+  a {
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    margin-right: 80px;
+  }
+  a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
