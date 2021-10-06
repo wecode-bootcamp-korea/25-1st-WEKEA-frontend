@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "url": "far fa-user"
+  },
+  {
+    "id": 2,
+    "url": "fas fa-shopping-basket"
+  },
+  {
+    "id": 3,
+    "url": "fas fa-bars"
+  }
+]
