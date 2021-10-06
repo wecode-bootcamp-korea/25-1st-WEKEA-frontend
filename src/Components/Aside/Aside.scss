@@ -1,15 +1,16 @@
 aside {
   .sideBar {
-    border: 1px solid red;
-    width: 530px;
+    padding-top: 30px;
+    width: 500px;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     .navLogo {
       width: 100px;
       height: 43px;
-      padding-bottom: 50px;
+      margin-bottom: 27px;
     }
     .allProduct {
       font-size: 42px;
@@ -17,5 +18,16 @@ aside {
       color: black;
       text-decoration: none;
     }
+    li {
+      margin-bottom: 60px;
+    }
+
+    li: first-chil;
+  }
+  .sideProductList {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
   }
 }

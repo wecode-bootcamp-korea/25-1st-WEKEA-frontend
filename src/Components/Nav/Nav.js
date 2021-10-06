@@ -34,7 +34,9 @@ export default class Nav extends Component {
 
         <div className="navBottomBorder">
           <div className="navBar">
-            <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
+            <Link to="/">
+              <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
+            </Link>
             <div className="search">
               <i class="fas fa-search"></i>
               <input type="text" placeholder="검색어 입력" />
