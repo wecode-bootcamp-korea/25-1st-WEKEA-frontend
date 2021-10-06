@@ -10,6 +10,7 @@ export default class Nav extends Component {
       iconList: [],
     };
   }
+
   componentDidMount() {
     fetch('http://localhost:3000/data/IconData.json', {
       method: 'GET',
