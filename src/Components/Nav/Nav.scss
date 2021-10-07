@@ -61,6 +61,12 @@ nav {
   input::placeholder {
     font-size: 18px;
   }
+
+  .fa-bars {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 .navLogo {
   width: 110px;

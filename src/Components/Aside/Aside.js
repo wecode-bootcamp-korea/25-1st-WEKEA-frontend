@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default class Aside extends Component {
   render() {
+    const { isVisible } = this.props;
     return (
-      <aside>
+      <aside className={isVisible ? 'show' : 'hide'}>
         <div className="sideBar">
           <Link to="/">
             <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />

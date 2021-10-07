@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import './Nav.scss';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
+import Aside from '../Aside/Aside';
 
 export default class Nav extends Component {
-  constructor() {
-    super();
-    this.state = {
-      iconList: [],
-    };
-  }
+  state = {
+    iconList: [],
+    isVisible: false,
+  };
+
+  toggleSideBar = () => {
+    this.setState({
+      isVisible: !this.state.isVisible,
+    });
+    console.log(this.state.isVisible);
+  };
 
   componentDidMount() {
     fetch('http://localhost:3000/data/IconData.json', {
@@ -34,7 +40,7 @@ export default class Nav extends Component {
 
         <div className="navBottomBorder">
           <div className="navBar">
-            <Link to="/">
+            <Link to="nav">
               <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
             </Link>
             <div className="search">
@@ -45,8 +51,10 @@ export default class Nav extends Component {
               {this.state.iconList.map(el => {
                 return <Icon url={el.url} id={el.id} />;
               })}
+              <i onClick={this.toggleSideBar} className="fas fa-bars"></i>
             </div>
           </div>
+          <Aside isVisible={this.state.isVisible} />
         </div>
         <div className="sideBar"></div>
       </nav>

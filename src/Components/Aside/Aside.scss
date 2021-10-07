@@ -1,9 +1,14 @@
 aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
   width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
+  transition: left 0.2s;
 
   img {
     margin-bottom: 50px;
@@ -35,4 +40,12 @@ aside {
       padding-bottom: 20px;
     }
   }
+}
+
+.show {
+  left: 0;
+}
+
+.hide {
+  left: -500px;
 }
