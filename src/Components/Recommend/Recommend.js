@@ -1,5 +1,6 @@
 import React from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './Recommend.scss';
 
 class Recommend extends React.Component {
   state = {
@@ -35,19 +36,23 @@ class Recommend extends React.Component {
       } = item;
       return (
         <li>
-          <img src={img} alt={`${forign}_img`} />
-          <span className="name">{`${forign} ${korean}`}</span>
-          <span className="info">{`${info}, ${width}x${height}x${zIndex} ${unit}`}</span>
-          <span className="price">{`₩ ${price}`}</span>
-          <span className="grade">{'★'.repeat(grade)}</span>
+          <Link to="">
+            <img src={img} alt={`${forign}_img`} />
+            <div className="text">
+              <span className="name">{`${forign} ${korean}`}</span>
+              <span className="info">{`${info}, ${width}x${height}x${zIndex} ${unit}`}</span>
+              <span className="price">{`₩ ${price}`}</span>
+              <span className="grade">{'★'.repeat(grade)}</span>
+            </div>
+          </Link>
         </li>
       );
     });
     return (
-      <>
-        <hi>추천 제품</hi>
-        {list}
-      </>
+      <div className="Recommend">
+        <h2>추천 제품</h2>
+        <ul>{list}</ul>
+      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
 {
   "newProduct": [
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -37,7 +37,7 @@
   ],
   "homeOffice": [
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -73,7 +73,7 @@
   ],
   "homePunishing": [
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,
@@ -162,7 +162,211 @@
       ]
     },
     {
-      "img": "#",
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "CHAIR",
+          "kr": "의자",
+          "explain": "합판 의자",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
+      "spot": [
+        {
+          "x": 30,
+          "y": 30,
+          "en": "SOPA",
+          "kr": "소파",
+          "explain": "3인용 소파",
+          "price": 150000
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "en": "DESK",
+          "kr": "책상",
+          "explain": "원목 책상",
+          "price": 80000
+        }
+      ]
+    },
+    {
+      "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
           "x": 30,

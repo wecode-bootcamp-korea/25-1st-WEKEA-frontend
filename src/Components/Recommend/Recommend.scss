@@ -1,0 +1,54 @@
+@import '../../Styles/variable.scss';
+
+.Recommend {
+  margin-bottom: 64px;
+
+  * {
+    text-decoration: none;
+    color: black;
+  }
+
+  h2 {
+    margin-bottom: 32px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  ul {
+    @include flex();
+    overflow: scroll;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  li {
+    @include flex();
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  .text {
+    @include flex();
+    flex-direction: column;
+    margin-top: 33px;
+  }
+
+  .name {
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: $lightblack;
+  }
+
+  .info {
+    margin-bottom: 8px;
+    color: $gray;
+  }
+
+  .price {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
