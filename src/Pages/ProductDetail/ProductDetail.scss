@@ -49,86 +49,14 @@
     width: 100%;
   }
 
-  .slider-wrapper {
-    position: relative;
-
-    .slider {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: scroll;
-
-      .item {
-        flex: 1 0 20vw;
-        padding-right: 15px;
-        cursor: pointer;
-
-        &:last-child {
-          padding-right: 0;
-        }
-
-        &:hover {
-          .title {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      &::-webkit-scrollbar {
-        height: 0.5rem;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: #111111;
-        border-radius: 4px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: #dfdfdf;
-        border-radius: 4px;
-      }
-    }
-
-    .arrow {
-      button {
-        //mixin
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        //
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background-color: #111111;
-        border-radius: 50%;
-        color: white;
-        opacity: 0;
-      }
-
-      .left-button {
-        left: -20px;
-      }
-
-      .right-button {
-        right: -20px;
-      }
-    }
-
-    &:hover {
-      button {
-        opacity: 1;
-        transition: 0.3s;
-      }
-    }
-  }
-
   .detail-main {
     display: flex;
     align-items: flex-start;
     margin-bottom: 3rem;
 
     .detail-left {
+      width: calc(100% - 340px);
+
       .left-top {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -177,7 +105,7 @@
     .detail-right {
       position: sticky;
       top: 0px;
-      min-width: 320px;
+      min-width: 300px;
       margin-left: 40px;
 
       .short-package {

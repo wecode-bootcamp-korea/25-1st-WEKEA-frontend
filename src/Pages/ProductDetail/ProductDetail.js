@@ -1,16 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Model from './Modal/Modal';
+import Slider from './Slider/Slider';
 import './ProductDetail.scss';
 
-export default class ProductDetail extends Component {
+class ProductDetail extends React.Component {
+  constructor() {
+    super();
+    this.state = { isModalShow: false };
+  }
+
+  showModal = () => {
+    this.setState({ isModalShow: true });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div className="ProductDetail">
         <div className="detail-main">
           <div className="detail-left">
             <div className="left-top">
-              <div className="image-wrapper">
+              <div className="image-wrapper" onClick={() => this.showModal()}>
                 <img src="/image/example.jpg" alt="" />
               </div>
+              {this.state.isModalShow && <Model />}
               <div className="image-wrapper">
                 <img src="/image/example.jpg" alt="" />
               </div>
@@ -48,72 +61,7 @@ export default class ProductDetail extends Component {
             </div>
             <div className="left-bottom">
               <h2 className="title">유사한 제품</h2>
-              <div className="slider-wrapper">
-                <div className="slider">
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <img src="/image/example.jpg" alt="" />
-                    <div className="title">VALEVÅG 발레보그</div>
-                    <div>포켓스프링매트리스, 150x200 cm</div>
-                    <div className="price-wrapper">
-                      <span className="won">￦</span>
-                      <span className="price">149,000</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="arrow">
-                  <button className="left-button">
-                    <i className="fas fa-chevron-left"></i>
-                  </button>
-                  <button className="right-button">
-                    <i className="fas fa-chevron-right"></i>
-                  </button>
-                </div>
-              </div>
+              <Slider />
             </div>
           </div>
           <aside className="detail-right">
@@ -140,13 +88,6 @@ export default class ProductDetail extends Component {
                 </div>
                 <i className="fas fa-angle-right"></i>
               </button>
-              <button className="modal-button">
-                <div>
-                  <span className="type title">강도</span>
-                  <span className="selected">매우 단단함/라이트블루</span>
-                </div>
-                <i className="fas fa-angle-right"></i>
-              </button>
             </section>
             <section className="button-section">
               <button className="buynow-button">
@@ -170,74 +111,11 @@ export default class ProductDetail extends Component {
         </div>
         <div className="detail-plus">
           <h2 className="title">최근 본 제품</h2>
-          <div className="slider-wrapper">
-            <div className="slider">
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-              <div className="item">
-                <img src="/image/example.jpg" alt="" />
-                <div className="title">VALEVÅG 발레보그</div>
-                <div>포켓스프링매트리스, 150x200 cm</div>
-                <div className="price-wrapper">
-                  <span className="won">￦</span>
-                  <span className="price">149,000</span>
-                </div>
-              </div>
-            </div>
-            <div className="arrow">
-              <button className="left-button">
-                <i className="fas fa-chevron-left"></i>
-              </button>
-              <button className="right-button">
-                <i className="fas fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
+          <Slider />
         </div>
       </div>
     );
   }
 }
+
+export default ProductDetail;
