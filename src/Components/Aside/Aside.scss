@@ -1,33 +1,38 @@
 aside {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  img {
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 40px;
+  }
   .sideBar {
     padding-top: 30px;
-    width: 500px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     .navLogo {
       width: 100px;
       height: 43px;
-      margin-bottom: 27px;
+      margin-bottom: 70px;
     }
-    .allProduct {
-      font-size: 42px;
-      font-weight: bold;
+
+    .sideProductList {
+      font-size: 16px;
       color: black;
+      font-weight: bold;
       text-decoration: none;
     }
     li {
-      margin-bottom: 60px;
+      padding-bottom: 20px;
     }
-
-    li: first-chil;
-  }
-  .sideProductList {
-    font-size: 16px;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
   }
 }

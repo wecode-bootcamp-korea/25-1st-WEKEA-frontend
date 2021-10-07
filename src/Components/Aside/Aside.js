@@ -7,34 +7,27 @@ export default class Aside extends Component {
     return (
       <aside>
         <div className="sideBar">
+          <Link to="/">
+            <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
+          </Link>
+          <h1>모든 제품</h1>
           <ul>
             <li>
-              <Link to="/">
-                <img
-                  className="navLogo"
-                  alt="wekeaLogo"
-                  src="/image/logo.png"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link className="allProduct" to="/">
-                <span>모든 제품</span>
-              </Link>
-            </li>
-            <li>
               <Link className="sideProductList" to="/">
-                <span>아웃도어</span>
+                <span>침대/매트리스</span>
               </Link>
+            </li>
+            <li>
+              <span
+                className="sideProductList"
+                onClick={() => this.props.currentIdxHandler(1)}
+              >
+                아웃도어
+              </span>
             </li>
             <li>
               <Link className="sideProductList" to="/">
                 <span>홈오피스</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="sideProductList" to="/">
-                <span>침대/매트리스</span>
               </Link>
             </li>
           </ul>
