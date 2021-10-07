@@ -3,6 +3,7 @@ import './Nav.scss';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import Aside from '../Aside/Aside';
+import PageTest from './PageTest';
 
 export default class Nav extends Component {
   state = {
@@ -14,7 +15,6 @@ export default class Nav extends Component {
     this.setState({
       isVisible: !this.state.isVisible,
     });
-    console.log(this.state.isVisible);
   };
 
   componentDidMount() {
@@ -54,9 +54,12 @@ export default class Nav extends Component {
               <i onClick={this.toggleSideBar} className="fas fa-bars"></i>
             </div>
           </div>
-          <Aside isVisible={this.state.isVisible} />
+          <Aside
+            isVisible={this.state.isVisible}
+            toggleSideBar={this.toggleSideBar}
+          />
         </div>
-        <div className="sideBar"></div>
+        <PageTest />
       </nav>
     );
   }
