@@ -19,12 +19,9 @@ export default class Aside extends Component {
               </Link>
             </li>
             <li>
-              <span
-                className="sideProductList"
-                onClick={() => this.props.currentIdxHandler(1)}
-              >
-                아웃도어
-              </span>
+              <Link className="sideProductList" to="/">
+                <span>아웃도어</span>
+              </Link>
             </li>
             <li>
               <Link className="sideProductList" to="/">
