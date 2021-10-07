@@ -1,0 +1,15 @@
+.SignupSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 120px 110px 0px 110px;
+
+  .SignupAside_article {
+    margin-right: 250px;
+  }
+  .SignupMain_article {
+    width: 640px;
+    .signUpInput {
+      width: 100%;
+    }
+  }
+}
