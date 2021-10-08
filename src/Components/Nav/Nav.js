@@ -18,9 +18,7 @@ export default class Nav extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/IconData.json', {
-      method: 'GET',
-    })
+    fetch('/data/IconData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -44,7 +42,7 @@ export default class Nav extends Component {
               <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
             </Link>
             <div className="search">
-              <i class="fas fa-search"></i>
+              <i className="fas fa-search"></i>
               <input type="text" placeholder="검색어 입력" />
             </div>
             <div className="IconComponent">

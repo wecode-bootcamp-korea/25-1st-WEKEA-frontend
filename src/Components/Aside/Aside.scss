@@ -1,19 +1,22 @@
-aside {
-  position: absolute;
+.aside {
+  position: fixed;
   top: 0;
   left: 0;
+  height: 100%;
   background: white;
-  width: 500px;
+  width: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
   transition: left 0.3s;
   border: 1px solid rgb(224, 221, 221);
+  z-index: 3;
 
   img {
     margin-bottom: 50px;
   }
+
   .fa-times {
     padding: 11px 14px;
     border-radius: 60px;
@@ -21,19 +24,20 @@ aside {
     left: 80px;
     font-weight: thin;
   }
+
   .fa-times:hover {
     background-color: rgba(240, 239, 239, 0.829);
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 30px;
     font-weight: bold;
     text-decoration: none;
     margin-bottom: 40px;
   }
+
   .sideBar {
     padding-top: 30px;
-    height: 100vh;
 
     .navLogo {
       width: 100px;
@@ -42,11 +46,15 @@ aside {
     }
 
     .sideProductList {
+      cursor: pointer;
       font-size: 16px;
       color: black;
       font-weight: bold;
-      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
+
     li {
       padding-bottom: 20px;
     }
@@ -58,5 +66,5 @@ aside {
 }
 
 .hide {
-  left: -500px;
+  left: -810px;
 }

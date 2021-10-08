@@ -8,7 +8,7 @@ export default class Icon extends Component {
     return (
       <div>
         <Link className="icon" to="/Signup">
-          <i class={url}></i>
+          <i className={url}></i>
         </Link>
       </div>
     );
