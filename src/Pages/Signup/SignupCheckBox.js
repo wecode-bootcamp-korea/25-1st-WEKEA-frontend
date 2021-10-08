@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SignupCheckBox extends Component {
   render() {
@@ -12,7 +13,7 @@ class SignupCheckBox extends Component {
         />
         <label className="signupCheckBox">
           {placeholder}
-          <a href="/">{checkboxLink}</a>
+          <Link to="/">{checkboxLink}</Link>
         </label>
       </div>
     );

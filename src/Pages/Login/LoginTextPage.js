@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class LoginTextPage extends Component {
   render() {
@@ -29,7 +30,7 @@ export default class LoginTextPage extends Component {
 
         <footer className="LoginTextPage_footer">
           <p className="LoginTextPage_footer_mainText">
-            WEKEA.kr - <a>개인정보처리방침</a>
+            WEKEA.kr - <Link to="/">개인정보처리방침</Link>
           </p>
           <p className="LoginTextPage_footer_subText">
             © Inter WEKEA Systems B.V. 1999-2021
