@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Banner from './Banner/Banner';
 import Gallary from './Gallary/Gallary';
-import Recommend from '../../Components/Recommend/Recommend';
+import Recommend from './/Recommend/Recommend';
 import './Main.scss';
 
 export default class Main extends Component {

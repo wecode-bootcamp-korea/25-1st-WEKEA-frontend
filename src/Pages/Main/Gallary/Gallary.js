@@ -10,7 +10,7 @@ class Gallary extends React.Component {
         <h2>{title}</h2>
         <div className="images">
           {items.map(item => (
-            <Teaser items={item} />
+            <Teaser key={item.id} items={item} />
           ))}
         </div>
       </div>
