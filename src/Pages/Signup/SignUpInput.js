@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-class SignUpInput extends Component {
+class SignupInput extends Component {
   render() {
-    const { placeholder, className } = this.props;
+    const { placeholder, className, type, text } = this.props;
     return (
       <div>
-        <input placeholder={placeholder} className={className} />
+        <input placeholder={placeholder} className={className} type={type} />
+        <p className="warnText">{text}</p>
       </div>
     );
   }
 }
 
-export default SignUpInput;
+export default SignupInput;
