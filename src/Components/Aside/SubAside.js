@@ -3,8 +3,10 @@ import './SubAside.scss';
 
 export default class SubAside extends Component {
   render() {
+    const { isExpand } = this.props;
+    console.log('expand' + this.props.isExpand);
     return (
-      <article className={this.props.isExpand ? 'expandShow' : null}>
+      <article className={`${isExpand ? 'expandShow' : null}`}>
         <div className="sideBar">
           <h1>모든 제품</h1>
           <ul>

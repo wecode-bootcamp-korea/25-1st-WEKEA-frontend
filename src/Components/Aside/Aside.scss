@@ -13,6 +13,12 @@
   border: 1px solid rgb(224, 221, 221);
   z-index: 3;
 
+  .navLogo {
+    width: 100px;
+    height: 43px;
+    margin-bottom: 70px;
+  }
+
   img {
     margin-bottom: 50px;
   }
@@ -38,12 +44,6 @@
 
   .sideBar {
     padding-top: 30px;
-
-    .navLogo {
-      width: 100px;
-      height: 43px;
-      margin-bottom: 70px;
-    }
 
     .sideProductList {
       cursor: pointer;

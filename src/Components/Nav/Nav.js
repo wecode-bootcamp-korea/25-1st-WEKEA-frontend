@@ -9,12 +9,25 @@ export default class Nav extends Component {
   state = {
     iconList: [],
     isVisible: false,
+    isExpand: false,
+  };
+
+  expandBar = () => {
+    this.setState({
+      isExpand: !this.state.isExpand,
+    });
   };
 
   toggleSideBar = () => {
-    this.setState({
-      isVisible: !this.state.isVisible,
-    });
+    this.state.isVisible === true
+      ? this.setState({
+          isVisible: !this.state.isVisible,
+          isExpand: false,
+        })
+      : this.setState({
+          isVisible: !this.state.isVisible,
+          isExpand: false,
+        });
   };
 
   componentDidMount() {
@@ -55,6 +68,8 @@ export default class Nav extends Component {
           <Aside
             isVisible={this.state.isVisible}
             toggleSideBar={this.toggleSideBar}
+            expandBar={this.expandBar}
+            isExpand={this.state.isExpand}
           />
         </div>
         <PageTest />
