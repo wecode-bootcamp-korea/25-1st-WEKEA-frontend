@@ -2,13 +2,15 @@
   display: flex;
   justify-content: flex-start;
   height: 100%;
+  padding-right: 100px;
 
   .loginMainArticle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    width: 470px;
+    width: 30%;
+    // width: 470px;
 
     a {
       text-transform: none;
@@ -93,14 +95,14 @@
     background-color: #2b58a3;
     max-width: 100%;
     max-height: 100%;
-    padding: 35px 90px 35px 400px;
+    padding: 45px 90px 45px 300px;
     margin-right: 85px;
     position: relative;
 
     .leftArrow {
       position: absolute;
       top: 45px;
-      left: 35px;
+      left: 45px;
       font-size: 20px;
       color: #fff;
     }
@@ -108,25 +110,25 @@
       width: 90px;
       height: 40px;
     }
-    .LoginTextPage_title {
+    .LoginTextPageTitle {
       font-size: 35px;
       font-weight: bold;
       color: #f7d913;
       margin-bottom: 25px;
     }
-    .LoginTextPage_text {
+    .LoginTextPageText {
       font-weight: 400;
       color: #fff;
 
-      .LoginTextPage_text_subText {
+      .LoginTextPageSubText {
         margin: 8px 0px 15px 0px;
       }
     }
 
-    .LoginTextPage_footer {
+    .LoginTextPageFooter {
       color: #fff;
       font-size: 13px;
-      .LoginTextPage_footer_mainText {
+      .LoginTextPageFooterMainText {
         margin-bottom: 10px;
       }
     }

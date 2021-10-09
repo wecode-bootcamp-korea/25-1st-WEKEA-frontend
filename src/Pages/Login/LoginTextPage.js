@@ -12,11 +12,11 @@ export default class LoginTextPage extends Component {
           <img className="logo" src="Image/loginLogo.png" alt="logo" />
         </div>
         <div>
-          <h1 className="LoginTextPage_title">로그인</h1>
-          <p className="LoginTextPage_text">
+          <h1 className="LoginTextPageTitle">로그인</h1>
+          <p className="LoginTextPageText">
             외워야 할 비밀번호가 많아 불편하셨죠?
             <br />
-            <p className="LoginTextPage_text_subText">
+            <p className="LoginTextPageSubText">
               이제 일회용 코드를 이용하여 간편하게 로그인
               <br />
               하세요
@@ -28,11 +28,11 @@ export default class LoginTextPage extends Component {
           </p>
         </div>
 
-        <footer className="LoginTextPage_footer">
-          <p className="LoginTextPage_footer_mainText">
+        <footer className="LoginTextPageFooter">
+          <p className="LoginTextPageFooterMainText">
             WEKEA.kr - <Link to="/">개인정보처리방침</Link>
           </p>
-          <p className="LoginTextPage_footer_subText">
+          <p className="LoginTextPageFooterSubText">
             © Inter WEKEA Systems B.V. 1999-2021
           </p>
         </footer>

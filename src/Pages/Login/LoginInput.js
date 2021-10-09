@@ -3,24 +3,25 @@ import LoginLinkBox from './LoginLinkBox';
 
 export default class LoginInput extends Component {
   state = {
-    passwordSectetOnOff: false,
+    isPasswordSectetOnOff: false,
   };
 
   handleSecret = e => {
-    const { passwordSectetOnOff } = this.state;
+    const { isPasswordSectetOnOff } = this.state;
     this.setState({
-      passwordSectetOnOff: !passwordSectetOnOff,
+      isPasswordSectetOnOff: !isPasswordSectetOnOff,
     });
   };
+
   render() {
-    const { passwordSectetOnOff: toggleSecret } = this.state;
+    const { isPasswordSectetOnOff } = this.state;
+
     const {
-      eyeOn,
-      eyeOff,
+      name,
+      handleChange,
       warnText,
       placeholder,
       type,
-      handleChanges,
       linkText,
       subtext,
       value,
@@ -28,17 +29,22 @@ export default class LoginInput extends Component {
     return (
       <div>
         <input
+          name={name}
           className="loginInput"
           placeholder={placeholder}
           type={type}
           value={value}
-          onChange={handleChanges}
+          onChange={e => handleChange(e)}
         />
 
         <div className="loginWarnText">{warnText}</div>
 
         <span className="passwordEye" onClick={this.handleSecret}>
-          {toggleSecret ? eyeOff : eyeOn}
+          {isPasswordSectetOnOff ? (
+            <i className="far fa-eye-slash"></i>
+          ) : (
+            <i className="far fa-eye"></i>
+          )}
         </span>
         <LoginLinkBox linkText={linkText} subtext={subtext} />
       </div>

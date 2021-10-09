@@ -1,56 +1,78 @@
 import React, { Component } from 'react';
 import LoginBtn from './LoginBtn';
 import LoginInput from './LoginInput';
-import './Login.scss';
 import LoginTextPage from './LoginTextPage';
+import './Login.scss';
 
 export default class Login extends Component {
   state = {
     idValue: '',
     passwordValue: '',
   };
-  handleIdChange = e => {
+  handleChange = e => {
+    const { name, value } = e.target;
     this.setState({
-      idValue: e.target.value,
+      [name]: value,
     });
+    console.log(this.state.idValue);
   };
-  handlePasswordChange = e => {
-    this.setState({
-      passwordValue: e.target.value,
-    });
+
+  goToSignup = e => {
+    const { idValue, passwordValue } = this.state;
+    this.props.history.push('/signup');
+
+    // fetch('http://10.58.5.115:8000/user/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: idValue,
+    //     password: passwordValue,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     if (response.token) {
+    //       localStorage.setItem('token', response.token);
+    //       this.props.history.push('/signup');
+    //     }
+    //   });
   };
 
   render() {
     const { idValue, passwordValue } = this.state;
+
     return (
       <section className="loginMainSection">
         <LoginTextPage />
         <article className="loginMainArticle">
           <form className="loginForm">
             <LoginInput
+              name="idValue"
               placeholder="이메일 또는 휴대폰 번호"
-              idValue={idValue}
-              handleChange={this.handleIdChange}
+              handleChange={this.handleChange}
               subtext="다른 로그인 옵션 :"
               linkText="일회용 코드로 로그인"
               warnText="이메일 또는 휴대폰 번호를 입력해주세요"
             />
+
             <LoginInput
+              name="passwordValue"
               placeholder="비밀번호"
               type="password"
-              passwordValue={passwordValue}
-              handleChanges={this.handlePasswordChange}
+              handleChange={this.handleChange}
               linkText="비밀번호 찾기"
               warnText="비밀번호를 입력해주세요"
-              eyeOn={<i className="far fa-eye"></i>}
-              eyeOff={<i className="far fa-eye-slash"></i>}
             />
+
             <LoginBtn placeholder="로그인" className="loginBtn" />
           </form>
           <p className="loginComment">
             WEKEA 계정이 없으신가요? 지금 바로 만들어 보세요!
           </p>
-          <LoginBtn placeholder="회원가입" className="loginBtnForSignup" />
+          <LoginBtn
+            placeholder="회원가입"
+            className="loginBtnForSignup"
+            goToSignup={this.goToSignup}
+          />
         </article>
       </section>
     );

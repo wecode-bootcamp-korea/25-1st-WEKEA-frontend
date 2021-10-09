@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 export default class LoginBtn extends Component {
   render() {
-    const { placeholder, className } = this.props;
+    const { placeholder, className, goToSignup } = this.props;
     return (
       <div>
-        <button className={className}>{placeholder}</button>
+        <button className={className} onClick={goToSignup}>
+          {placeholder}
+        </button>
       </div>
     );
   }
