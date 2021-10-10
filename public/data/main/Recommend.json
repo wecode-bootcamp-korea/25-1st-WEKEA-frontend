@@ -1,6 +1,7 @@
 [
   {
-    "img": "#",
+    "id": 0,
+    "img": "../../image/main/banner.jpg",
     "forign": "TAGGVALLMO",
     "korean": "타그발모",
     "info": "매트리스 커버",
@@ -12,7 +13,8 @@
     "grade": 4
   },
   {
-    "img": "#",
+    "id": 1,
+    "img": "../../image/main/banner.jpg",
     "forign": "Billy",
     "korean": "빌리",
     "info": "책장",
@@ -24,7 +26,8 @@
     "grade": 3
   },
   {
-    "img": "#",
+    "id": 2,
+    "img": "../../image/main/banner.jpg",
     "forign": "TAGGVALLMO",
     "korean": "타그발모",
     "info": "매트리스 커버",
@@ -36,7 +39,86 @@
     "grade": 4
   },
   {
-    "img": "#",
+    "id": 3,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 4,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 5,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 6,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 7,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 8,
+    "img": "../../image/main/banner.jpg",
+    "forign": "TAGGVALLMO",
+    "korean": "타그발모",
+    "info": "매트리스 커버",
+    "width": 90,
+    "height": 200,
+    "zIndex": 0,
+    "unit": "cm",
+    "price": 5000,
+    "grade": 4
+  },
+  {
+    "id": 9,
+    "img": "../../image/main/banner.jpg",
     "forign": "TAGGVALLMO",
     "korean": "타그발모",
     "info": "매트리스 커버",

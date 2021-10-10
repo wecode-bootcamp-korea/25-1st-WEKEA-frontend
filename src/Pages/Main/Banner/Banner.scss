@@ -1,0 +1,43 @@
+@import '../../../Styles/variable.scss';
+
+.Main {
+  .Banner {
+    @include flex(center, flex-start);
+    width: 100%;
+    background-color: #ebe1c6;
+    margin-bottom: 4rem;
+
+    img {
+      width: 60%;
+    }
+
+    .text {
+      padding: 48px;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .explain {
+      display: inline-block;
+      margin-bottom: 32px;
+      line-height: 1.5;
+      font-size: 14px;
+      word-break: keep-all;
+    }
+
+    a {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-size: small;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      background-color: $lightblack;
+    }
+  }
+}
