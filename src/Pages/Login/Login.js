@@ -17,9 +17,9 @@ export default class Login extends Component {
     console.log(this.state.idValue);
   };
 
-  goToSignup = e => {
-    const { idValue, passwordValue } = this.state;
-    this.props.history.push('/signup');
+  goToLogin = e => {
+    // const { idValue, passwordValue } = this.state;
+    this.props.history.push('/');
 
     // fetch('http://10.58.5.115:8000/user/login', {
     //   method: 'POST',
@@ -32,22 +32,25 @@ export default class Login extends Component {
     //   .then(response => {
     //     if (response.token) {
     //       localStorage.setItem('token', response.token);
-    //       this.props.history.push('/signup');
+    //       this.props.history.push('/');
     //     }
     //   });
   };
+  goToSignUp = e => {
+    this.props.history.push('/signup');
+  };
 
   render() {
-    const { idValue, passwordValue } = this.state;
+    // const { idValue, passwordValue } = this.state;
 
     return (
       <section className="loginMainSection">
         <LoginTextPage />
         <article className="loginMainArticle">
-          <form className="loginForm">
+          <div className="loginForm">
             <LoginInput
               name="idValue"
-              placeholder="이메일 또는 휴대폰 번호"
+              placeholder="이메일"
               handleChange={this.handleChange}
               subtext="다른 로그인 옵션 :"
               linkText="일회용 코드로 로그인"
@@ -63,15 +66,20 @@ export default class Login extends Component {
               warnText="비밀번호를 입력해주세요"
             />
 
-            <LoginBtn placeholder="로그인" className="loginBtn" />
-          </form>
+            <LoginBtn
+              placeholder="로그인"
+              className="loginBtn"
+              goToPage={this.goToLogin}
+            />
+          </div>
+
           <p className="loginComment">
             WEKEA 계정이 없으신가요? 지금 바로 만들어 보세요!
           </p>
           <LoginBtn
             placeholder="회원가입"
             className="loginBtnForSignup"
-            goToSignup={this.goToSignup}
+            goToPage={this.goToSignUp}
           />
         </article>
       </section>

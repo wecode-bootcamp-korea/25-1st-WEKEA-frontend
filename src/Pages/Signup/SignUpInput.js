@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 
 class SignupInput extends Component {
   render() {
-    const { placeholder, className, type, text } = this.props;
+    const { placeholder, type, text, handleChange, name } = this.props;
     return (
       <div>
-        <input placeholder={placeholder} className={className} type={type} />
+        <input
+          name={name}
+          placeholder={placeholder}
+          className="signupInput"
+          type={type}
+          onChange={e => handleChange(e)}
+        />
         <p className="warnText">{text}</p>
       </div>
     );

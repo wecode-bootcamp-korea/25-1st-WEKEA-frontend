@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 
 class SignupSelect extends Component {
   render() {
-    const { value, firstOption, secondOption, thirdOption } = this.props;
+    const { name, options, handleChange } = this.props;
     return (
-      <select className="signupSelect">
-        <option>{value}</option>
-        <option>{firstOption}</option>
-        <option>{secondOption}</option>
-        <option>{thirdOption}</option>
+      <select
+        name={name}
+        onChange={e => handleChange(e)}
+        className="signupSelect"
+      >
+        {options.map((el, idx) => (
+          <>
+            <option value={el.id} key={idx}>
+              {el.option}
+            </option>
+          </>
+        ))}
       </select>
     );
   }
