@@ -22,7 +22,7 @@ class ProductDetail extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ productList: data, product: data[0] });
+        this.setState({ productList: data, product: data[1] });
       });
   }
 
@@ -83,12 +83,7 @@ class ProductDetail extends React.Component {
               )}
             </div>
             <div className="left-middle">
-              <div className="summary">
-                직선형 솔기와 섬세한 스티지 디테일이 가미된 깔끔하고 현대적인
-                디자인입니다. 부드러운 침대헤드는 늦은 밤 독서를 즐길 때 편안한
-                등받이가 되어줍니다. 더 좋은 점은 모든 것이 단일 패키지로
-                제공된다는 점입니다. 정말 간편하죠?
-              </div>
+              <div className="summary">{product.summary}</div>
               <section className="information-section">
                 <button className="modal-button" onClick={this.showAsideModal}>
                   <span className="title">제품 설명</span>
@@ -120,14 +115,14 @@ class ProductDetail extends React.Component {
             <header className="short-package">
               <div className="package-main">
                 <div className="name-wrapper">
-                  <h1 className="name">VESTMARKA 베스트마르카</h1>
-                  <div className="description">
-                    스프링매트리스, 매우 단단함/라이트블루, 120x200 cm
-                  </div>
+                  <h1 className="name">{product.name}</h1>
+                  <div className="description">{product.description}</div>
                 </div>
                 <div className="price-wrapper">
                   <span className="won">￦</span>
-                  <span className="price">149,000</span>
+                  <span className="price">
+                    {product.price && product.price.toLocaleString()}
+                  </span>
                 </div>
               </div>
               <div className="rating"></div>
@@ -136,7 +131,9 @@ class ProductDetail extends React.Component {
               <button className="modal-button">
                 <div>
                   <span className="type title">규격</span>
-                  <span className="selected">120X200 cm</span>
+                  <span className="selected">
+                    {product.option && product.option[0].tag}
+                  </span>
                 </div>
                 <i className="fas fa-angle-right"></i>
               </button>

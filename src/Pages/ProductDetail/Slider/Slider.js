@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import './Slider.scss';
 
 class Slider extends React.Component {
@@ -102,6 +103,10 @@ class Slider extends React.Component {
     this.handleSlider(newPosition);
   };
 
+  clickItem = () => {
+    this.props.history.push('/');
+  };
+
   render() {
     const {
       itemWidth,
@@ -130,7 +135,12 @@ class Slider extends React.Component {
           <ul className="slider-list" ref={this.slider} style={sliderListStyle}>
             {productList.map(product => {
               return (
-                <li className="item" key={product.id} style={itemStyle}>
+                <li
+                  className="item"
+                  key={product.id}
+                  style={itemStyle}
+                  onClick={selected ? null : this.clickItem}
+                >
                   <img
                     src={`/image/${
                       selected ? product.url : product.img[0].url
@@ -180,4 +190,4 @@ class Slider extends React.Component {
   }
 }
 
-export default Slider;
+export default withRouter(Slider);

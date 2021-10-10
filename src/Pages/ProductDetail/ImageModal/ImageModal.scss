@@ -1,13 +1,25 @@
 .ImageModal {
   .container {
-    position: absolute;
     top: 2rem;
     left: 2rem;
     width: calc(100% - 4rem);
     height: calc(100% - 4rem);
     padding: 2.5rem 6.25rem;
-    background-color: white;
     border-radius: 8px;
+    animation: imageModalOpen 0.3s;
+
+    @keyframes imageModalOpen {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .main {
+      margin: 2rem 0;
+    }
 
     .Slider {
       height: 100%;
@@ -20,6 +32,7 @@
 
           .item {
             padding: 20px;
+            height: 100%;
             text-align: center;
             overflow: hidden;
             cursor: default;
@@ -27,6 +40,7 @@
             img {
               width: auto;
               height: 100%;
+              max-width: 100%;
             }
 
             //이미지만 나오는거 확인용

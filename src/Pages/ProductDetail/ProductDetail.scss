@@ -43,8 +43,6 @@
 
   img {
     width: 100%;
-    //크기 조절용 임시
-    height: 250px;
   }
 
   .modal-button {
@@ -66,14 +64,19 @@
     background-color: rgba($color: #000000, $alpha: 0.15);
     z-index: 1000;
 
-    .close-button {
+    .container {
       position: absolute;
-      top: 20px;
-      right: 40px;
-      font-size: 20px;
+      background-color: white;
 
-      &:hover {
-        background-color: #efefef;
+      .close-button {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 20px;
+
+        &:hover {
+          background-color: #efefef;
+        }
       }
     }
   }
@@ -92,6 +95,8 @@
         margin-bottom: 3rem;
 
         .image-wrapper {
+          display: flex;
+          align-items: center;
           margin: 0 10px 20px 10px;
           //cursor: url(src='../../../public/Image/zoomCursor.png') 20 20, zoom-in;
         }
