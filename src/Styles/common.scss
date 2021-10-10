@@ -1,10 +1,4 @@
-// mixin
-@mixin flex($justify: flex-start, $align: flex-start) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
+* {
+  box-sizing: border-box;
+  text-decoration: none;
 }
-
-// variable
-$gray: #484848;
-$ligthblack: #111111;
