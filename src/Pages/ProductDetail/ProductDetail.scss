@@ -26,14 +26,10 @@
     }
   }
 
-  .modal-button {
-    //mixin
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    //
-    width: 100%;
-    border-top: 1px solid #dfdfdf;
+  .round-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 
   button {
@@ -47,6 +43,39 @@
 
   img {
     width: 100%;
+    //크기 조절용 임시
+    height: 250px;
+  }
+
+  .modal-button {
+    //mixin
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //
+    width: 100%;
+    border-top: 1px solid #dfdfdf;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.15);
+    z-index: 1000;
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 20px;
+
+      &:hover {
+        background-color: #efefef;
+      }
+    }
   }
 
   .detail-main {
@@ -64,6 +93,7 @@
 
         .image-wrapper {
           margin: 0 10px 20px 10px;
+          //cursor: url(src='../../../public/Image/zoomCursor.png') 20 20, zoom-in;
         }
       }
 
@@ -105,7 +135,7 @@
     .detail-right {
       position: sticky;
       top: 0px;
-      min-width: 300px;
+      width: 300px;
       margin-left: 40px;
 
       .short-package {

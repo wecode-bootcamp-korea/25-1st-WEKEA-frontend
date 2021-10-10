@@ -1,41 +1,86 @@
 import React from 'react';
-import Model from './Modal/Modal';
+import ImageModal from './ImageModal/ImageModal';
+import AsideModal from './AsideModal/AsideModal';
 import Slider from './Slider/Slider';
 import './ProductDetail.scss';
 
 class ProductDetail extends React.Component {
   constructor() {
     super();
-    this.state = { isModalShow: false };
+    this.state = {
+      productList: [],
+      product: {},
+      isImageModalShow: false,
+      isAsideModalShow: false,
+      selected: 0,
+    };
   }
 
-  showModal = () => {
-    this.setState({ isModalShow: true });
+  componentDidMount() {
+    fetch('http://localhost:3000/data/productDetailData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ productList: data, product: data[0] });
+      });
+  }
+
+  showImageModal = id => {
+    this.setState({ isImageModalShow: true, selected: id });
+  };
+
+  closeImageModal = () => {
+    this.setState({ isImageModalShow: false });
+  };
+
+  showAsideModal = id => {
+    this.setState({ isAsideModalShow: true });
+  };
+
+  closeAsideModal = () => {
+    this.setState({ isAsideModalShow: false });
   };
 
   render() {
-    console.log(this.state);
+    const {
+      productList,
+      product,
+      isImageModalShow,
+      isAsideModalShow,
+      selected,
+    } = this.state;
+
+    //scss파일에서 src 경로 에러 뜨는거 임시방편
+    const imgCursorStyle = {
+      cursor: "URL('/image/zoomCursor.png') 20 20, zoom-in",
+    };
+
     return (
       <div className="ProductDetail">
         <div className="detail-main">
           <div className="detail-left">
             <div className="left-top">
-              <div className="image-wrapper" onClick={() => this.showModal()}>
-                <img src="/image/example.jpg" alt="" />
-              </div>
-              {this.state.isModalShow && <Model />}
-              <div className="image-wrapper">
-                <img src="/image/example.jpg" alt="" />
-              </div>
-              <div className="image-wrapper">
-                <img src="/image/example.jpg" alt="" />
-              </div>
-              <div className="image-wrapper">
-                <img src="/image/example.jpg" alt="" />
-              </div>
-              <div className="image-wrapper">
-                <img src="/image/example.jpg" alt="" />
-              </div>
+              {product.img &&
+                product.img.map(el => {
+                  return (
+                    <div
+                      className="image-wrapper"
+                      key={el.id}
+                      onClick={() => this.showImageModal(el.id)}
+                      style={imgCursorStyle}
+                    >
+                      <img src={`/image/${el.url}`} alt="" />
+                    </div>
+                  );
+                })}
+              {isImageModalShow && (
+                <ImageModal
+                  imageList={product.img}
+                  selected={selected}
+                  closeImageModal={this.closeImageModal}
+                />
+              )}
             </div>
             <div className="left-middle">
               <div className="summary">
@@ -45,7 +90,7 @@ class ProductDetail extends React.Component {
                 제공된다는 점입니다. 정말 간편하죠?
               </div>
               <section className="information-section">
-                <button className="modal-button">
+                <button className="modal-button" onClick={this.showAsideModal}>
                   <span className="title">제품 설명</span>
                   <i className="fas fa-arrow-right"></i>
                 </button>
@@ -58,10 +103,17 @@ class ProductDetail extends React.Component {
                   <i className="fas fa-arrow-right"></i>
                 </button>
               </section>
+              {isAsideModalShow && (
+                <AsideModal closeAsideModal={this.closeAsideModal} />
+              )}
             </div>
             <div className="left-bottom">
               <h2 className="title">유사한 제품</h2>
-              <Slider />
+              <Slider
+                productList={productList}
+                itemWidth={window.innerWidth / 5}
+                itemNums={productList.length}
+              />
             </div>
           </div>
           <aside className="detail-right">
@@ -111,7 +163,11 @@ class ProductDetail extends React.Component {
         </div>
         <div className="detail-plus">
           <h2 className="title">최근 본 제품</h2>
-          <Slider />
+          <Slider
+            productList={productList}
+            itemWidth={window.innerWidth / 5}
+            itemNums={productList.length}
+          />
         </div>
       </div>
     );

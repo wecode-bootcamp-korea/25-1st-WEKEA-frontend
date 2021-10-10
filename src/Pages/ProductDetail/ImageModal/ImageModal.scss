@@ -1,0 +1,41 @@
+.ImageModal {
+  .container {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    padding: 2.5rem 6.25rem;
+    background-color: white;
+    border-radius: 8px;
+
+    .Slider {
+      height: 100%;
+
+      .list-wrapper {
+        height: 100%;
+
+        .slider-list {
+          height: 100%;
+
+          .item {
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+            cursor: default;
+
+            img {
+              width: auto;
+              height: 100%;
+            }
+
+            //이미지만 나오는거 확인용
+            div {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

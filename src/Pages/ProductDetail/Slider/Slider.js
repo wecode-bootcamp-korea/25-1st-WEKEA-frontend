@@ -5,121 +5,175 @@ class Slider extends React.Component {
   constructor() {
     super();
     this.state = {
-      sliderWidth: 0,
-      scrollWidth: 0,
-      currentPosition: 0,
-      itemWidth: window.innerWidth / 5,
+      itemWidth: 0,
+      position: 0,
+      viewNums: 0,
+      viewWidth: 0,
+      isLeftBtnShow: false,
+      isRightBtnShow: true,
+      hasTransition: false,
+      thumbPosition: 0,
     };
     this.slider = React.createRef();
   }
 
   componentDidMount() {
+    const { showItem, itemWidth, itemNums, selected } = this.props;
+    const viewWidth = this.slider.current.offsetWidth;
+    const selectedPosition = -viewWidth * (selected - 1);
+
     this.setState({
-      sliderWidth: this.slider.current.offsetWidth,
-      scrollWidth: this.slider.current.scrollWidth,
+      itemWidth: showItem ? viewWidth : itemWidth,
+      position: selected ? selectedPosition : 0,
+      viewNums: showItem ? 1 : Math.floor(viewWidth / itemWidth),
+      viewWidth: viewWidth,
+      isLeftBtnShow: selected === 1 || !selected ? false : true,
+      isRightBtnShow: selected === itemNums ? false : true,
+      thumbPosition: selected ? -selectedPosition / itemNums : 0,
     });
   }
 
   clickArrowBtn = arrow => {
-    const newPosition = this.calcNewPosition(
-      arrow,
-      this.state.currentPosition,
-      this.calcMovingWidth()
-    );
-    this.setState({ currentPosition: newPosition });
-    this.slider.current.scrollTo(newPosition, 0);
+    const { itemWidth, position, viewNums } = this.state;
+    const newPosition =
+      position + viewNums * itemWidth * (arrow === 'left' ? 1 : -1);
+
+    this.handleSlider(newPosition);
   };
 
-  calcMovingWidth = () => {
-    const { sliderWidth, itemWidth } = this.state;
-    const itemNums = Math.floor(sliderWidth / itemWidth);
-    return itemWidth * itemNums;
+  handleSlider = newPo => {
+    const maxPo = this.calcMaxPosition();
+
+    if (newPo >= 0) {
+      this.setState({
+        position: 0,
+        isLeftBtnShow: false,
+        isRightBtnShow: true,
+        hasTransition: true,
+        thumbPosition: 0,
+      });
+    } else if (newPo <= maxPo) {
+      this.setState({
+        position: maxPo,
+        isLeftBtnShow: true,
+        isRightBtnShow: false,
+        hasTransition: true,
+        thumbPosition: Math.abs(maxPo) * this.calcSliderRatio(),
+      });
+    } else {
+      this.setState({
+        position: newPo,
+        isLeftBtnShow: true,
+        isRightBtnShow: true,
+        hasTransition: true,
+        thumbPosition: Math.abs(newPo) * this.calcSliderRatio(),
+      });
+    }
   };
 
-  calcNewPosition = (arrow, currentPosition, movingWidth) => {
-    return currentPosition + (arrow === 'left' ? -movingWidth : movingWidth);
+  calcMaxPosition = () => {
+    const { itemNums } = this.props;
+    const { itemWidth, viewNums, viewWidth } = this.state;
+    return viewNums === 1
+      ? -itemWidth * (itemNums - 1)
+      : viewWidth - itemWidth * itemNums;
   };
 
-  isBtnShow = arrow => {
-    const { scrollWidth, currentPosition, itemWidth } = this.state;
+  calcSliderRatio = () => {
+    const { viewWidth, itemWidth } = this.state;
+    const { itemNums } = this.props;
+    return viewWidth / (itemNums * itemWidth);
+  };
+
+  calcThumbWidth = () => {
+    const { viewWidth, itemWidth } = this.state;
+    const { itemNums } = this.props;
     return (
-      (arrow === 'left' && currentPosition > 0) ||
-      (arrow === 'right' && currentPosition < scrollWidth - itemWidth * 3)
+      (viewWidth * viewWidth) /
+      (itemWidth * itemNums === 0 ? 1 : itemNums * itemWidth)
     );
+  };
+
+  clickScrollbar = e => {
+    const { itemWidth } = this.state;
+    const newPosition =
+      -Math.floor(e.nativeEvent.offsetX / this.calcSliderRatio() / itemWidth) *
+      itemWidth;
+    this.handleSlider(newPosition);
   };
 
   render() {
+    const {
+      itemWidth,
+      position,
+      isLeftBtnShow,
+      isRightBtnShow,
+      hasTransition,
+      thumbPosition,
+    } = this.state;
+    const { productList, selected } = this.props;
+
+    const sliderListStyle = {
+      marginLeft: position,
+      transition: hasTransition ? '0.3s' : '0',
+    };
+    const itemStyle = { flexBasis: itemWidth };
+    const thumbStyle = {
+      width: this.calcThumbWidth(),
+      left: thumbPosition,
+      transition: hasTransition ? '0.3s' : '0',
+    };
+
     return (
-      <div className="slider-wrapper">
-        <div className="slider" ref={this.slider}>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/image/example.jpg" alt="" />
-            <div className="title">VALEVÅG 발레보그</div>
-            <div>포켓스프링매트리스, 150x200 cm</div>
-            <div className="price-wrapper">
-              <span className="won">￦</span>
-              <span className="price">149,000</span>
-            </div>
-          </div>
+      <div className="Slider">
+        <div className="list-wrapper">
+          <ul className="slider-list" ref={this.slider} style={sliderListStyle}>
+            {productList.map(product => {
+              return (
+                <li className="item" key={product.id} style={itemStyle}>
+                  <img
+                    src={`/image/${
+                      selected ? product.url : product.img[0].url
+                    }`}
+                    alt=""
+                  />
+                  <div className="title">{product.name}</div>
+                  <div>{product.description}</div>
+                  <div className="price-wrapper">
+                    <span className="won">￦</span>
+                    <span className="price">{product.price}</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <div className="arrow">
+        <div className="button-wrapper">
           <button
-            className={`left-button ${this.isBtnShow('left') ? '' : 'hide'}`}
+            className={`left-button round-button ${
+              isLeftBtnShow ? '' : 'hide'
+            }`}
             onClick={() => this.clickArrowBtn('left')}
           >
             <i className="fas fa-chevron-left"></i>
           </button>
           <button
-            className={`right-button ${this.isBtnShow('right') ? '' : 'hide'}`}
+            className={`right-button round-button ${
+              isRightBtnShow ? '' : 'hide'
+            }`}
             onClick={() => this.clickArrowBtn('right')}
           >
             <i className="fas fa-chevron-right"></i>
           </button>
+        </div>
+        <div className="scrollbar-wrapper" onClick={this.clickScrollbar}>
+          <div className="scrollbar">
+            <div
+              className={'thumb'}
+              style={thumbStyle}
+              onClick={e => e.stopPropagation()}
+            ></div>
+          </div>
         </div>
       </div>
     );

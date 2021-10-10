@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail1.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  },
+  {
+    "id": 2,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail2.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  },
+  {
+    "id": 3,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail3.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  },
+  {
+    "id": 4,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail4.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  },
+  {
+    "id": 5,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail5.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  },
+  {
+    "id": 6,
+    "name": "GRIMSBU 그림스부",
+    "description": "침대프레임, 그레이, 150x200 cm",
+    "price": "60,000",
+    "option": [
+      { "id": 1, "tag": "200x200", "subPrice": 0 },
+      { "id": 2, "tag": "300x250", "subPrice": 5000 }
+    ],
+    "img": [
+      { "id": 1, "url": "detail6.jpg" },
+      { "id": 2, "url": "detail2.jpg" },
+      { "id": 3, "url": "detail3.jpg" },
+      { "id": 4, "url": "detail4.jpg" }
+    ],
+    "summary": "침대 협탁으로 사용할 수도 있습니다.",
+    "information": "벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽 재질에 맞는 고정장치를 사용하세요.",
+    "size": [100, 200, 300]
+  }
+]

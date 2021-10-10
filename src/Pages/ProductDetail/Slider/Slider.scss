@@ -1,44 +1,46 @@
-.slider-wrapper {
+.Slider {
   position: relative;
 
-  .slider {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
+  .list-wrapper {
+    overflow: hidden;
 
-    .item {
-      flex: 1 0 20vw;
-      padding-right: 15px;
-      cursor: pointer;
+    .slider-list {
+      display: flex;
+      flex-wrap: nowrap;
 
-      &:last-child {
-        padding-right: 0;
-      }
+      .item {
+        flex: 1 0 20vw;
+        padding-right: 15px;
+        cursor: pointer;
 
-      &:hover {
-        .title {
-          text-decoration: underline;
+        &:last-child {
+          padding-right: 0;
+        }
+
+        &:hover {
+          .title {
+            text-decoration: underline;
+          }
         }
       }
-    }
 
-    &::-webkit-scrollbar {
-      height: 0.125rem;
-    }
+      &::-webkit-scrollbar {
+        height: 0.125rem;
+      }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: #111111;
-      border-radius: 4px;
-    }
+      &::-webkit-scrollbar-thumb {
+        background-color: #111111;
+        border-radius: 4px;
+      }
 
-    &::-webkit-scrollbar-track {
-      background-color: #dfdfdf;
-      border-radius: 4px;
+      &::-webkit-scrollbar-track {
+        background-color: #dfdfdf;
+        border-radius: 4px;
+      }
     }
   }
 
-  .arrow {
+  .button-wrapper {
     button {
       //mixin
       display: flex;
@@ -48,10 +50,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
       background-color: #111111;
-      border-radius: 50%;
       color: white;
       opacity: 0;
 
@@ -74,6 +73,38 @@
     button {
       opacity: 1;
       transition: 0.3s;
+    }
+  }
+
+  .scrollbar-wrapper {
+    //mixin
+    display: flex;
+    align-items: center;
+    //
+    width: 100%;
+    height: 1.5rem;
+    cursor: pointer;
+
+    .scrollbar {
+      position: relative;
+      width: 100%;
+      height: 0.125rem;
+      border-radius: 4px;
+      background-color: #dfdfdf;
+
+      .thumb {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        border-radius: 4px;
+        background-color: #111111;
+      }
+    }
+
+    &:hover {
+      .scrollbar {
+        height: 0.25rem;
+      }
     }
   }
 }
