@@ -3,7 +3,6 @@ import './Nav.scss';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import Aside from '../Aside/Aside';
-import PageTest from './PageTest';
 
 export default class Nav extends Component {
   state = {
@@ -19,15 +18,10 @@ export default class Nav extends Component {
   };
 
   toggleSideBar = () => {
-    this.state.isVisible === true
-      ? this.setState({
-          isVisible: !this.state.isVisible,
-          isExpand: false,
-        })
-      : this.setState({
-          isVisible: !this.state.isVisible,
-          isExpand: false,
-        });
+    this.setState({
+      isVisible: !this.state.isVisible,
+      isExpand: false,
+    });
   };
 
   componentDidMount() {
@@ -42,7 +36,7 @@ export default class Nav extends Component {
 
   render() {
     return (
-      <nav>
+      <div className="nav">
         <div className="blackBar">
           <Link to="/">코로나 19 대응 공지</Link>
           <Link to="/">비대면 전화주문 서비스</Link>
@@ -58,7 +52,7 @@ export default class Nav extends Component {
               <i className="fas fa-search"></i>
               <input type="text" placeholder="검색어 입력" />
             </div>
-            <div className="IconComponent">
+            <div className="iconComponent">
               {this.state.iconList.map(el => {
                 return <Icon url={el.url} id={el.id} />;
               })}
@@ -72,8 +66,7 @@ export default class Nav extends Component {
             isExpand={this.state.isExpand}
           />
         </div>
-        <PageTest />
-      </nav>
+      </div>
     );
   }
 }

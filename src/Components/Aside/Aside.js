@@ -21,6 +21,7 @@ export default class Aside extends Component {
 
   render() {
     const { isVisible, toggleSideBar, expandBar, isExpand } = this.props;
+    const { category } = this.state;
     return (
       <>
         <div>
@@ -32,18 +33,22 @@ export default class Aside extends Component {
 
             <h1>모든 제품</h1>
             <ul>
-              {this.state.category.map(el => {
+              {category.map(el => {
                 return (
                   <Category key={el.id} name={el.name} expandBar={expandBar} />
                 );
               })}
             </ul>
           </div>
-          <SubAside
-            isExpand={isExpand}
-            isVisible={isVisible}
-            catName={this.state.category.main_categories.name}
-          />
+          {category.map(el => {
+            return (
+              <SubAside
+                isExpand={isExpand}
+                isVisible={isVisible}
+                catName={category.name}
+              />
+            );
+          })}
         </div>
       </>
     );
