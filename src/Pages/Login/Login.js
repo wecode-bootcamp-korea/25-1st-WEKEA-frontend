@@ -9,6 +9,7 @@ export default class Login extends Component {
     idValue: '',
     passwordValue: '',
   };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -16,11 +17,19 @@ export default class Login extends Component {
     });
     console.log(this.state.idValue);
   };
-
+  // && this.state.passwordValue.length > 5;
   goToLogin = e => {
-    // const { idValue, passwordValue } = this.state;
-    this.props.history.push('/');
+    const { idValue, passwordValue } = this.state;
 
+    const idValid = idValue.includes('@');
+    const passwordValid = passwordValue.length >= 8;
+    // const { idValue, passwordValue } = this.state;
+    if (idValid && passwordValid) {
+      this.props.history.push('/');
+    } else {
+      alert('아이디 비밀번호 확인부탁');
+    }
+    // if( isValid && passwordValid ) {
     // fetch('http://10.58.5.115:8000/user/login', {
     //   method: 'POST',
     //   body: JSON.stringify({
@@ -33,15 +42,20 @@ export default class Login extends Component {
     //     if (response.token) {
     //       localStorage.setItem('token', response.token);
     //       this.props.history.push('/');
+    //
     //     }
     //   });
+    // } else {
+    //   alert("id 와 비밀번호를 확인해주세요")
+    // }
   };
+
   goToSignUp = e => {
     this.props.history.push('/signup');
   };
 
   render() {
-    // const { idValue, passwordValue } = this.state;
+    const { idValue, passwordValue } = this.state;
 
     return (
       <section className="loginMainSection">
@@ -49,6 +63,7 @@ export default class Login extends Component {
         <article className="loginMainArticle">
           <div className="loginForm">
             <LoginInput
+              inputValue={idValue}
               name="idValue"
               placeholder="이메일"
               handleChange={this.handleChange}
@@ -58,6 +73,7 @@ export default class Login extends Component {
             />
 
             <LoginInput
+              inputValue={passwordValue}
               name="passwordValue"
               placeholder="비밀번호"
               type="password"

@@ -13,6 +13,8 @@ export default class LoginInput extends Component {
     });
   };
 
+  handleBlur = e => {};
+
   render() {
     const { isPasswordSectetOnOff } = this.state;
 
@@ -25,10 +27,12 @@ export default class LoginInput extends Component {
       linkText,
       subtext,
       value,
+      inputValue,
     } = this.props;
     return (
       <div>
         <input
+          inputValue={inputValue}
           name={name}
           className="loginInput"
           placeholder={placeholder}
@@ -37,13 +41,20 @@ export default class LoginInput extends Component {
           onChange={e => handleChange(e)}
         />
 
-        <div className="loginWarnText">{warnText}</div>
+        {inputValue.length === 0 ? (
+          <div className="loginWarnTextTrue">{warnText}</div>
+        ) : (
+          <div className="loginWarnText">{warnText}</div>
+        )}
 
-        <span className="passwordEye" onClick={this.handleSecret}>
+        <span
+          className={inputValue.length > 0 ? 'passwordEyeFalse' : 'passwordEye'}
+          onClick={this.handleSecret}
+        >
           {isPasswordSectetOnOff ? (
-            <i className="far fa-eye-slash"></i>
+            <i class="far fa-eye-slash"></i>
           ) : (
-            <i className="far fa-eye"></i>
+            <i class="far fa-eye"></i>
           )}
         </span>
         <LoginLinkBox linkText={linkText} subtext={subtext} />

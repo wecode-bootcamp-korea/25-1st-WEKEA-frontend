@@ -36,17 +36,24 @@
           border-bottom: 3px solid #e01751;
         }
       }
-      .passwordEye {
+      .passwordEyeFalse {
         position: absolute;
         top: 145px;
         right: 10px;
       }
+      .passwordEye {
+        position: absolute;
+        top: 170px;
+        right: 10px;
+      }
 
-      .loginWarnText {
+      .loginWarnTextTrue {
         margin: 15px 0px 10px 0px;
         font-size: 13px;
         font-weight: 600;
         color: #e53470;
+      }
+      .loginWarnText {
         display: none;
       }
     }

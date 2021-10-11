@@ -31,6 +31,15 @@ class SignupMain extends Component {
     });
   }
 
+  // componentDidUpdate() {
+  //   const { birthDayValue } = this.state;
+  //   if (birthDayValue.length === 8) {
+  //     this.setState({
+  //       ),
+  //     });
+  //   }
+  // }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -46,19 +55,59 @@ class SignupMain extends Component {
   };
 
   handleClick = () => {
-    // const {
-    //   lastNameValue,
-    //   firstNameValue,
-    //   birthDayValue,
-    //   phoneNumberValue,
-    //   postNumberValue,
-    //   roadNumberValue,
-    //   addressValue,
-    //   emailValue,
-    //   passwordValue,
-    //   gender: '',
-    //   favorite: '',
-    // } = this.state;
+    // this.props.history.push('/login');
+    const {
+      lastNameValue,
+      firstNameValue,
+      birthDayValue,
+      phoneNumberValue,
+      roadNumberValue,
+      addressValue,
+      postNumberValue,
+      emailValue,
+      passwordValue,
+      gender,
+      favorite,
+      checkAll,
+      checkUser,
+      checkAgree,
+      checkOut,
+    } = this.state;
+
+    if (birthDayValue.length === 8) {
+      birthDayValue.splice(3, 0, '-');
+      birthDayValue.splice(5, 0, '-');
+    }
+    const birthDayValid = birthDayValue.includes('-');
+    const phoneNumberValid = phoneNumberValue.length > 9;
+    const roadNumberValid = roadNumberValue.includes('길');
+    const addressValid = addressValue.length > 5;
+    const postNumberValid = postNumberValue.length > 3;
+    const emailValid = emailValue.includes('@');
+    const passwordValid = passwordValue.length > 8;
+    const genderValid = gender > 0;
+    const favoriteValid = favorite > 0;
+    const checkValid = checkAll && checkUser && checkAgree && checkOut;
+
+    if (
+      lastNameValue &&
+      firstNameValue &&
+      birthDayValid &&
+      phoneNumberValid &&
+      roadNumberValid &&
+      addressValid &&
+      postNumberValid &&
+      emailValid &&
+      passwordValid &&
+      genderValid &&
+      favoriteValid &&
+      checkValid
+    ) {
+      this.props.history.push('/login');
+      alert('회원가입이 완료 되었습니다.');
+    } else {
+      alert('양식이 잘못 되었습니다. ');
+    }
 
     // fetch('http://10.58.5.115:8000/user/signup', {
     //   method: 'POST',
@@ -73,7 +122,7 @@ class SignupMain extends Component {
     //     name_of_street: roadNumberValue,
     //     default_address: addressValue,
     //     gender: Number(gender)
-    //     favorite_store: favorite
+    //     favorite_store: Number(favorite)
     //   }),
     // })
     //   .then(response => response.json())
@@ -83,7 +132,7 @@ class SignupMain extends Component {
     //       this.props.history.push('/login');
     //     }
     //   });
-    this.props.history.push('/login');
+    //   this.props.history.push('/login');
   };
 
   render() {
@@ -106,7 +155,7 @@ class SignupMain extends Component {
 
           <SignupInput
             name="birthDayValue"
-            placeholder="생일"
+            placeholder="생일 (YYYY-MM-DD)"
             handleChange={this.handleChange}
           />
 
@@ -141,7 +190,7 @@ class SignupMain extends Component {
           />
 
           <SignupInput
-            name="postNumberValueValue"
+            name="postNumberValue"
             placeholder="우편번호"
             handleChange={this.handleChange}
           />
