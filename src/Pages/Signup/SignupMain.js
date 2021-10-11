@@ -74,15 +74,11 @@ class SignupMain extends Component {
       checkOut,
     } = this.state;
 
-    if (birthDayValue.length === 8) {
-      birthDayValue.splice(3, 0, '-');
-      birthDayValue.splice(5, 0, '-');
-    }
     const birthDayValid = birthDayValue.includes('-');
     const phoneNumberValid = phoneNumberValue.length > 9;
     const roadNumberValid = roadNumberValue.includes('길');
     const addressValid = addressValue.length > 5;
-    const postNumberValid = postNumberValue.length > 3;
+    const postNumberValid = postNumberValue.length === 5;
     const emailValid = emailValue.includes('@');
     const passwordValid = passwordValue.length > 8;
     const genderValid = gender > 0;

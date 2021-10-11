@@ -17,7 +17,6 @@ export default class Login extends Component {
     });
     console.log(this.state.idValue);
   };
-  // && this.state.passwordValue.length > 5;
   goToLogin = e => {
     const { idValue, passwordValue } = this.state;
 
