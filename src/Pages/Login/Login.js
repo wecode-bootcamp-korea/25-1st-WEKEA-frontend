@@ -15,7 +15,6 @@ export default class Login extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state.idValue);
   };
   goToLogin = e => {
     const { idValue, passwordValue } = this.state;

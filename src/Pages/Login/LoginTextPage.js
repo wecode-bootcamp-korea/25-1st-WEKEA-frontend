@@ -5,9 +5,9 @@ export default class LoginTextPage extends Component {
   render() {
     return (
       <article className="loginArticle">
-        <div className="leftArrow">
+        <Link className="leftArrow" to="/">
           <i className="fas fa-arrow-left"></i>
-        </div>
+        </Link>
         <div>
           <img className="logo" src="Image/loginLogo.png" alt="logo" />
         </div>
@@ -30,7 +30,10 @@ export default class LoginTextPage extends Component {
 
         <footer className="LoginTextPageFooter">
           <p className="LoginTextPageFooterMainText">
-            WEKEA.kr - <Link to="/">개인정보처리방침</Link>
+            WEKEA.kr -{' '}
+            <Link className="LoginTextPageFooterLink" to="/">
+              개인정보처리방침
+            </Link>
           </p>
           <p className="LoginTextPageFooterSubText">
             © Inter WEKEA Systems B.V. 1999-2021
