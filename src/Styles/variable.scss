@@ -1,0 +1,10 @@
+// mixin
+
+@mixin flex($justify: flex-start, $align: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+$gray: #484848;
+$lightblack: #111;
