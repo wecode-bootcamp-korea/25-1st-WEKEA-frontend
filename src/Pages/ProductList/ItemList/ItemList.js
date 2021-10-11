@@ -19,38 +19,48 @@ export default class ItemList extends Component {
 
 const ITEM_EXAMPLE = [
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
   {
-    name: 'a',
-    explain: 'fsdfdsfdsf',
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
+    price: 234234,
+  },
+  {
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
+    price: 234234,
+  },
+  {
+    name: '제품명',
+    explain: '이건 무슨 제품일까요우',
     price: 234234,
   },
 ];

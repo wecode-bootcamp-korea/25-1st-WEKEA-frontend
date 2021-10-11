@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
+import FilterList from './FilterList';
 
 class FilterBtn extends Component {
   render() {
-    const { name } = this.props;
+    const { item, currentBtn, buttonOn } = this.props;
+    const { name, list } = item;
+    const isMatch = currentBtn === name;
     return (
-      <>
-        <button className="FilterBtn">
+      <div>
+        <button
+          id={name}
+          className={`FilterBtn ${isMatch ? 'focus' : ''}`}
+          onClick={buttonOn}
+        >
           {name}
-          <i class="fas fa-chevron-down"></i>
+          <i
+            id={name}
+            className={`fas fa-chevron-${isMatch ? 'up' : 'down'} `}
+            onClick={buttonOn}
+          ></i>
         </button>
-      </>
+        {isMatch && <FilterList id={name} name={name} list={list} />}
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 @import '../../../../Styles/variable.scss';
 
 .FilterBar {
+  @include flex();
   padding: 1.25rem 0;
   border-bottom: 1px solid #dfdfdf;
 }
@@ -11,8 +12,38 @@
   border: 0px;
   border-radius: 30px;
   background-color: rgb(245, 245, 245);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(211, 209, 209);
+  }
+
+  &.focus {
+    color: white;
+    background-color: black;
+  }
 
   i {
     margin-left: 0.5rem;
+    font-size: 17px;
+  }
+}
+
+.FilterList {
+  position: absolute;
+  min-width: 300px;
+  margin-top: 1rem;
+  padding: 2.5rem;
+  border: 2px solid rgb(245, 245, 245);
+  border-radius: 6px;
+  background-color: white;
+
+  .listItem {
+    @include flex(space-between, center);
+    padding: 1rem 0;
+  }
+
+  .itemLabel {
+    color: $gray;
   }
 }
