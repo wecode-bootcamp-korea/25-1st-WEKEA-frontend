@@ -4,17 +4,11 @@ class SignupSelect extends Component {
   render() {
     const { name, options, handleChange } = this.props;
     return (
-      <select
-        name={name}
-        onChange={e => handleChange(e)}
-        className="signupSelect"
-      >
+      <select name={name} onChange={handleChange} className="signupSelect">
         {options.map((el, idx) => (
-          <>
-            <option value={el.id} key={idx}>
-              {el.option}
-            </option>
-          </>
+          <React.Fragment key={idx}>
+            <option value={el.id}>{el.option}</option>
+          </React.Fragment>
         ))}
       </select>
     );

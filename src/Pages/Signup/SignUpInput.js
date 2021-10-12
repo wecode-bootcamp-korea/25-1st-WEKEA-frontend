@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 
 class SignupInput extends Component {
   render() {
-    const { placeholder, type, text, handleChange, name } = this.props;
+    const { inputValue, placeholder, type, text, handleChange, name } =
+      this.props;
     return (
-      <div>
+      <React.Fragment>
         <input
+          inputValue={inputValue}
           name={name}
           placeholder={placeholder}
           className="signupInput"
           type={type}
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
-        <p className="warnText">{text}</p>
-      </div>
+
+        <p className={inputValue > 0 ? 'warnTextFalse' : 'warnText'}>{text}</p>
+      </React.Fragment>
     );
   }
 }

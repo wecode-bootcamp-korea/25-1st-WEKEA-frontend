@@ -4,11 +4,11 @@ class SignupButton extends Component {
   render() {
     const { text, handleClick } = this.props;
     return (
-      <div>
+      <>
         <button onClick={handleClick} className="signupButton">
           {text}
         </button>
-      </div>
+      </>
     );
   }
 }

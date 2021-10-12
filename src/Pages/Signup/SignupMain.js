@@ -11,40 +11,31 @@ class SignupMain extends Component {
     firstNameValue: '',
     birthDayValue: '',
     phoneNumberValue: '',
-    postNumberValue: '',
+    postNumberValue: 0,
     roadNumberValue: '',
     addressValue: '',
     emailValue: '',
     passwordValue: '',
-    gender: '',
-    favorite: '',
+    default_address: 0,
+    gender: 0,
+    favorite: 0,
     checkAll: false,
     checkUser: false,
     checkAgree: false,
     checkOut: false,
   };
 
-  componentDidMount() {
-    this.setState({
-      gender: '0',
-      favorite: '0',
-    });
-  }
-
-  // componentDidUpdate() {
-  //   const { birthDayValue } = this.state;
-  //   if (birthDayValue.length === 8) {
-  //     this.setState({
-  //       ),
-  //     });
-  //   }
-  // }
-
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    if (name === 'gender' || name === 'favorite') {
+      this.setState({
+        [name]: Number(value),
+      });
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   };
 
   handleCheck = e => {
@@ -54,9 +45,10 @@ class SignupMain extends Component {
     });
   };
 
-  handleClick = () => {
-    // this.props.history.push('/login');
+  handleClick = e => {
+    e.preventDefault();
     const {
+      default_address,
       lastNameValue,
       firstNameValue,
       birthDayValue,
@@ -79,11 +71,15 @@ class SignupMain extends Component {
     const roadNumberValid = roadNumberValue.includes('길');
     const addressValid = addressValue.length > 5;
     const postNumberValid = postNumberValue.length === 5;
-    const emailValid = emailValue.includes('@');
+    const emailValid =
+      emailValue.includes('@') &&
+      emailValue.includes('.com') &&
+      emailValue.length > 5;
     const passwordValid = passwordValue.length > 8;
     const genderValid = gender > 0;
     const favoriteValid = favorite > 0;
     const checkValid = checkAll && checkUser && checkAgree && checkOut;
+    const defaultValue = default_address;
 
     if (
       lastNameValue &&
@@ -99,44 +95,50 @@ class SignupMain extends Component {
       favoriteValid &&
       checkValid
     ) {
-      this.props.history.push('/login');
-      alert('회원가입이 완료 되었습니다.');
-    } else {
-      alert('양식이 잘못 되었습니다. ');
-    }
+      fetch('http://10.58.2.67:8100/user/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          last_name: lastNameValue,
+          first_name: firstNameValue,
+          email: emailValue,
+          password: passwordValue,
+          mobile_phone: phoneNumberValue,
+          birthday: birthDayValue,
 
-    // fetch('http://10.58.5.115:8000/user/signup', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     last_name: lastNameValue,
-    //     first_name: firstNameValue,
-    //     birthday: birthDayValue,
-    //     email: emailValue,
-    //     password: passwordValue,
-    //     mobile_phone: phoneNumberValue,
-    //     zip_code: postNumberValue,
-    //     name_of_street: roadNumberValue,
-    //     default_address: addressValue,
-    //     gender: Number(gender)
-    //     favorite_store: Number(favorite)
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     if (response.token) {
-    //       localStorage.setItem('token', response.token);
-    //       this.props.history.push('/login');
-    //     }
-    //   });
-    //   this.props.history.push('/login');
+          zip_code: postNumberValue,
+          name_of_street: roadNumberValue,
+          detail_address: addressValue,
+          default_address: default_address,
+          gender: gender,
+          favorite_store: favorite,
+        }),
+      })
+        .then(response => response.json())
+        .then(response => {
+          // if (response.token) {
+          //   localStorage.setItem('token', response.token);
+          this.props.history.push('/login');
+          // }
+        });
+    }
   };
 
   render() {
-    console.log(this.state);
+    const {
+      lastNameValue,
+      firstNameValue,
+      birthDayValue,
+      phoneNumberValue,
+      addressValue,
+      emailValue,
+      passwordValue,
+    } = this.state;
+
     return (
       <article className="SignupMain_article">
         <form>
           <SignupInput
+            inputValue={lastNameValue}
             name="lastNameValue"
             placeholder="성"
             text="성 필드는 필수 필드입니다."
@@ -144,19 +146,29 @@ class SignupMain extends Component {
           />
 
           <SignupInput
+            inputValue={firstNameValue}
             name="firstNameValue"
             placeholder="이름"
+            text="이름 필드는 필수 필드입니다."
             handleChange={this.handleChange}
           />
 
-          <SignupInput
-            name="birthDayValue"
-            placeholder="생일 (YYYY-MM-DD)"
-            handleChange={this.handleChange}
-          />
+          <div className="questionBox">
+            <SignupInput
+              name="birthDayValue"
+              placeholder="생일 (YYYY-MM-DD)"
+              text="생일 필드는 필수 필드입니다."
+              handleChange={this.handleChange}
+            />
+            <div className="questionMark">
+              <i className="fas fa-question-circle"></i>
+            </div>
+          </div>
 
           <SignupInput
+            inputValue={phoneNumberValue}
             name="phoneNumberValue"
+            text="휴대폰 필드는 필수 필드입니다."
             placeholder="KR (+82)"
             handleChange={this.handleChange}
           />
@@ -164,12 +176,11 @@ class SignupMain extends Component {
           <SignupSelect
             handleChange={this.handleChange}
             name="gender"
-            value="성별 (선택 사항)"
             options={[
-              { id: '0', option: '' },
-              { id: '1', option: '남성' },
-              { id: '2', option: '여성' },
-              { id: '3', option: '선택안함' },
+              { id: 0, option: '' },
+              { id: 1, option: '남성' },
+              { id: 2, option: '여성' },
+              { id: 3, option: '선택안함' },
             ]}
           />
 
@@ -181,6 +192,7 @@ class SignupMain extends Component {
 
           <SignupInput
             name="addressValue"
+            text="상세 주소 필드는 필수 필드입니다."
             placeholder="상세 주소"
             handleChange={this.handleChange}
           />
@@ -196,34 +208,39 @@ class SignupMain extends Component {
             name="favorite"
             value="선호하는 매장"
             options={[
-              { id: '1', option: '고양' },
-              { id: '2', option: '광명' },
-              { id: '3', option: '기흥' },
-              { id: '4', option: '동부산' },
+              { id: 1, option: '고양' },
+              { id: 2, option: '광명' },
+              { id: 3, option: '기흥' },
+              { id: 4, option: '동부산' },
             ]}
           />
 
           <SignupInput
+            inputValue={emailValue}
             name="emailValue"
+            text="이메일 필드는 필수 필드입니다."
             placeholder="이메일"
             handleChange={this.handleChange}
           />
 
           <SignupInput
+            inputValue={passwordValue}
             name="passwordValue"
+            text="비밀번호 필드는 필수 필드입니다."
             placeholder="비밀번호"
             type="password"
             handleChange={this.handleChange}
           />
 
-          <SignupCheckBox
-            name="checkAll"
-            placeholder="(필수) 약관을 모두 읽고 동의합니다."
-            checkboxLink="이용약관"
-            type="checkbox"
-            handleCheck={this.handleCheck}
-          />
-
+          <div className="signupCheckBoxFirst">
+            <SignupCheckBox
+              name="checkAll"
+              placeholder="(필수) 약관을 모두 읽고 동의합니다."
+              checkboxLink="이용약관"
+              type="checkbox"
+              handleCheck={this.handleCheck}
+            />
+          </div>
           <SignupCheckBox
             name="checkUser"
             placeholder="(필수) 개인정보 수집 / 이용에 동의합니다."
@@ -239,8 +256,7 @@ class SignupMain extends Component {
             type="checkbox"
             handleCheck={this.handleCheck}
           />
-
-          <div className="signupCheckBoxLastchild">
+          <div className="signupCheckBoxLast">
             <SignupCheckBox
               name="checkOut"
               placeholder="(필수) 개인정보 국외이전에 동의합니다."

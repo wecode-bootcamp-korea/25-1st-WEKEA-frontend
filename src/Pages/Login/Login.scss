@@ -19,7 +19,6 @@
     .loginForm {
       display: flex;
       flex-direction: column;
-      position: relative;
 
       .loginInput {
         &::placeholder {
@@ -45,21 +44,24 @@
         border: none;
         border-bottom: 1px solid black;
         outline: none;
-        // border-bottom: 3px solid #e01751;
 
         &:focus {
           border-bottom: 3px solid #0158a3;
         }
       }
-      .passwordEye {
-        position: absolute;
-        top: 145px;
-        right: 10px;
+      .loginFormPassword {
+        position: relative;
+        .passwordEye {
+          position: absolute;
+          top: 12.5px;
+          right: 10px;
+        }
       }
+
       .passwordEyeFalse {
         position: absolute;
-        top: 170px;
-        right: 10px;
+        top: 0px;
+        right: 0px;
       }
 
       .loginWarnTextTrue {
