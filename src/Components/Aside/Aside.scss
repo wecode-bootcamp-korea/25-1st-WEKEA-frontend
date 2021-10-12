@@ -1,0 +1,71 @@
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: white;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  transition: left 0.3s;
+  border: 1px solid rgb(224, 221, 221);
+  z-index: 3;
+
+  .navLogo {
+    width: 100px;
+    height: 43px;
+    margin-bottom: 70px;
+  }
+
+  img {
+    margin-bottom: 50px;
+  }
+
+  .fa-times {
+    padding: 11px 14px;
+    border-radius: 60px;
+    position: absolute;
+    left: 80px;
+    font-weight: thin;
+  }
+
+  .fa-times:hover {
+    background-color: rgba(240, 239, 239, 0.829);
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 40px;
+  }
+
+  .sideBar {
+    padding-top: 30px;
+
+    .sideProductList {
+      cursor: pointer;
+      font-size: 16px;
+      color: black;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.show {
+  left: 0;
+}
+
+.hide {
+  left: -810px;
+}
