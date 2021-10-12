@@ -1,7 +1,7 @@
 import React from 'react';
-import ImageModal from './ImageModal/ImageModal';
-import AsideModal from './AsideModal/AsideModal';
-import Slider from './Slider/Slider';
+import ImageModal from '../../Components/Modal/ImageModal/ImageModal';
+import AsideModal from '../../Components/Modal/AsideModal/AsideModal';
+import Slider from '../../Components/Slider/Slider';
 import './ProductDetail.scss';
 
 class ProductDetail extends React.Component {
@@ -12,34 +12,30 @@ class ProductDetail extends React.Component {
       product: {},
       isImageModalShow: false,
       isAsideModalShow: false,
-      selected: 0,
+      selectedImg: 0,
+      selectedOption: 1,
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/productDetailData.json', {
+    fetch('/data/productDetailData.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ productList: data, product: data[1] });
+        this.setState({ productList: data, product: data[0] });
       });
   }
 
-  showImageModal = id => {
-    this.setState({ isImageModalShow: true, selected: id });
+  showModal = (isNameShow, id) => {
+    this.setState({
+      [isNameShow]: true,
+      selectedImg: id,
+    });
   };
 
-  closeImageModal = () => {
-    this.setState({ isImageModalShow: false });
-  };
-
-  showAsideModal = id => {
-    this.setState({ isAsideModalShow: true });
-  };
-
-  closeAsideModal = () => {
-    this.setState({ isAsideModalShow: false });
+  closeModal = isNameShow => {
+    this.setState({ [isNameShow]: false });
   };
 
   render() {
@@ -48,7 +44,7 @@ class ProductDetail extends React.Component {
       product,
       isImageModalShow,
       isAsideModalShow,
-      selected,
+      selectedImg,
     } = this.state;
 
     //scss파일에서 src 경로 에러 뜨는거 임시방편
@@ -60,49 +56,55 @@ class ProductDetail extends React.Component {
       <div className="ProductDetail">
         <div className="detail-main">
           <div className="detail-left">
-            <div className="left-top">
+            <div className="detail-image">
               {product.img &&
                 product.img.map(el => {
                   return (
                     <div
                       className="image-wrapper"
                       key={el.id}
-                      onClick={() => this.showImageModal(el.id)}
+                      onClick={() => this.showModal('isImageModalShow', el.id)}
                       style={imgCursorStyle}
                     >
-                      <img src={`/image/${el.url}`} alt="" />
+                      <img src={`/image/${el.url}`} alt="상품 이미지" />
                     </div>
                   );
                 })}
               {isImageModalShow && (
                 <ImageModal
                   imageList={product.img}
-                  selected={selected}
-                  closeImageModal={this.closeImageModal}
+                  selectedImg={selectedImg}
+                  closeModal={() => this.closeModal('isImageModalShow')}
                 />
               )}
             </div>
-            <div className="left-middle">
+            <div className="detail-information">
               <div className="summary">{product.summary}</div>
               <section className="information-section">
-                <button className="modal-button" onClick={this.showAsideModal}>
+                <button
+                  className="modal-button"
+                  onClick={() => this.showModal('isAsideModalShow', 0)}
+                >
                   <span className="title">제품 설명</span>
-                  <i className="fas fa-arrow-right"></i>
+                  <i className="fas fa-arrow-right" />
                 </button>
                 <button className="modal-button">
                   <span className="title">제품 크기</span>
-                  <i className="fas fa-arrow-right"></i>
+                  <i className="fas fa-arrow-right" />
                 </button>
                 <button className="modal-button">
                   <span className="title">상품평</span>
-                  <i className="fas fa-arrow-right"></i>
+                  <i className="fas fa-arrow-right" />
                 </button>
               </section>
               {isAsideModalShow && (
-                <AsideModal closeAsideModal={this.closeAsideModal} />
+                <AsideModal
+                  isNameShow="isAsideModalShow"
+                  closeModal={() => this.closeModal('isAsideModalShow')}
+                />
               )}
             </div>
-            <div className="left-bottom">
+            <div className="detail-similar-products">
               <h2 className="title">유사한 제품</h2>
               <Slider
                 productList={productList}
@@ -135,7 +137,7 @@ class ProductDetail extends React.Component {
                     {product.option && product.option[0].tag}
                   </span>
                 </div>
-                <i className="fas fa-angle-right"></i>
+                <i className="fas fa-angle-right" />
               </button>
             </section>
             <section className="button-section">
@@ -143,16 +145,16 @@ class ProductDetail extends React.Component {
                 <span>구매하기</span>
               </button>
               <button className="heart-button">
-                <i className="far fa-heart"></i>
+                <i className="far fa-heart" />
               </button>
             </section>
             <section className="available-section">
               <div className="delivery">
-                <i className="fas fa-truck"></i>
+                <i className="fas fa-truck" />
                 <span>배송 옵션은 결제 단계에서 확인 가능합니다.</span>
               </div>
               <button className="stock modal-button">
-                <i className="fas fa-store"></i>
+                <i className="fas fa-store" />
                 <span>매장 재고 및 재입고 날짜 확인</span>
               </button>
             </section>

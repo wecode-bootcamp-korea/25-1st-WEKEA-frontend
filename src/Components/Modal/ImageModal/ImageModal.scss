@@ -38,9 +38,8 @@
             cursor: default;
 
             img {
-              width: auto;
               height: 100%;
-              max-width: 100%;
+              object-fit: contain;
             }
 
             //이미지만 나오는거 확인용

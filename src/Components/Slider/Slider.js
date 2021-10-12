@@ -19,18 +19,18 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
-    const { showItem, itemWidth, itemNums, selected } = this.props;
+    const { showItem, itemWidth, itemNums, selectedImg } = this.props;
     const viewWidth = this.slider.current.offsetWidth;
-    const selectedPosition = -viewWidth * (selected - 1);
+    const selectedImgPosition = -viewWidth * (selectedImg - 1);
 
     this.setState({
       itemWidth: showItem ? viewWidth : itemWidth,
-      position: selected ? selectedPosition : 0,
+      position: selectedImg ? selectedImgPosition : 0,
       viewNums: showItem ? 1 : Math.floor(viewWidth / itemWidth),
       viewWidth: viewWidth,
-      isLeftBtnShow: selected === 1 || !selected ? false : true,
-      isRightBtnShow: selected === itemNums ? false : true,
-      thumbPosition: selected ? -selectedPosition / itemNums : 0,
+      isLeftBtnShow: selectedImg === 1 || !selectedImg ? false : true,
+      isRightBtnShow: !(selectedImg === itemNums),
+      thumbPosition: selectedImg ? -selectedImgPosition / itemNums : 0,
     });
   }
 
@@ -116,7 +116,7 @@ class Slider extends React.Component {
       hasTransition,
       thumbPosition,
     } = this.state;
-    const { productList, selected } = this.props;
+    const { productList, selectedImg } = this.props;
 
     const sliderListStyle = {
       marginLeft: position,
@@ -139,19 +139,21 @@ class Slider extends React.Component {
                   className="item"
                   key={product.id}
                   style={itemStyle}
-                  onClick={selected ? null : this.clickItem}
+                  onClick={selectedImg ? null : this.clickItem}
                 >
                   <img
                     src={`/image/${
-                      selected ? product.url : product.img[0].url
+                      selectedImg ? product.url : product.img[0].url
                     }`}
-                    alt=""
+                    alt="상품 이미지"
                   />
                   <div className="title">{product.name}</div>
                   <div>{product.description}</div>
                   <div className="price-wrapper">
                     <span className="won">￦</span>
-                    <span className="price">{product.price}</span>
+                    <span className="price">
+                      {product.price && product.price.toLocaleString()}
+                    </span>
                   </div>
                 </li>
               );
@@ -165,7 +167,7 @@ class Slider extends React.Component {
             }`}
             onClick={() => this.clickArrowBtn('left')}
           >
-            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left" />
           </button>
           <button
             className={`right-button round-button ${
@@ -173,16 +175,16 @@ class Slider extends React.Component {
             }`}
             onClick={() => this.clickArrowBtn('right')}
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right" />
           </button>
         </div>
         <div className="scrollbar-wrapper" onClick={this.clickScrollbar}>
           <div className="scrollbar">
             <div
-              className={'thumb'}
+              className="thumb"
               style={thumbStyle}
               onClick={e => e.stopPropagation()}
-            ></div>
+            />
           </div>
         </div>
       </div>

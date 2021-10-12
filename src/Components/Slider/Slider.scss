@@ -1,3 +1,5 @@
+@import '../../Styles/variable.scss';
+
 .Slider {
   position: relative;
 
@@ -5,9 +7,7 @@
     overflow: hidden;
 
     .slider-list {
-      display: flex;
-      align-items: flex-end;
-      flex-wrap: nowrap;
+      @include flex(flex-start, flex-end);
 
       .item {
         flex: 1 0 20vw;
@@ -22,6 +22,11 @@
           .title {
             text-decoration: underline;
           }
+        }
+
+        img {
+          height: 300px;
+          object-fit: contain;
         }
       }
 
@@ -43,11 +48,7 @@
 
   .button-wrapper {
     button {
-      //mixin
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      //
+      @include flex(center, center);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -55,7 +56,6 @@
       color: white;
       opacity: 0;
 
-      ///나중에 빼낼꺼
       &.hide {
         display: none;
       }
@@ -78,10 +78,7 @@
   }
 
   .scrollbar-wrapper {
-    //mixin
-    display: flex;
-    align-items: center;
-    //
+    @include flex(flex-start, center);
     width: 100%;
     height: 1.5rem;
     cursor: pointer;
