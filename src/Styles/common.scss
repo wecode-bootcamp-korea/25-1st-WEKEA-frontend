@@ -4,6 +4,12 @@
 * {
   box-sizing: border-box;
   font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
   text-decoration: none;
 }
 
