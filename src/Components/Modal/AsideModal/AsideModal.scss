@@ -1,0 +1,24 @@
+.AsideModal {
+  .container {
+    right: 0;
+    max-width: 30rem;
+    width: calc(100% - 3rem);
+    height: 100%;
+    padding: 5rem 3rem 2rem 3rem;
+    border-radius: 8px 0 0 8px;
+    animation: asideModalOpen 0.3s;
+
+    @keyframes asideModalOpen {
+      0% {
+        right: calc(3rem - 100%);
+      }
+      100% {
+        right: 0;
+      }
+    }
+
+    .main {
+      margin: 2rem 0;
+    }
+  }
+}
