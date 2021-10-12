@@ -4,6 +4,15 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2.5rem;
+
+  div {
+    margin-bottom: 10px;
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .Item {
