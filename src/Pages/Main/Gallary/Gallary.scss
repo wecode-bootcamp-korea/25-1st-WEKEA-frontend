@@ -15,7 +15,8 @@
   }
 
   .images {
-    @include flex();
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 }
@@ -24,7 +25,8 @@
   position: relative;
 
   img {
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 10;
   }
 }

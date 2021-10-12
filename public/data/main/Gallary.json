@@ -5,34 +5,34 @@
       "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
-          "x": 30,
-          "y": 30,
-          "en": "SOPA",
-          "kr": "소파",
-          "explain": "3인용 소파",
-          "price": 150000
+          "x": 20,
+          "y": 50,
+          "en": "LIXHULT",
+          "kr": "릭스훌트",
+          "explain": "수납콤비네이션, 120x35x92 cm",
+          "price": 1000
         },
         {
-          "x": 50,
-          "y": 50,
-          "en": "DESK",
-          "kr": "책상",
-          "explain": "원목 책상",
+          "x": 45,
+          "y": 38,
+          "en": "FÄRGRIK",
+          "kr": "페리리크",
+          "explain": "머그컵, 25 cl",
           "price": 80000
         }
       ]
     },
     {
       "id": 1,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://images.unsplash.com/photo-1552558636-f6a8f071c2b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=60",
       "spot": [
         {
-          "x": 30,
-          "y": 30,
-          "en": "CHAIR",
-          "kr": "의자",
-          "explain": "합판 의자",
-          "price": 50000
+          "x": 42,
+          "y": 60,
+          "en": "VILDKORN",
+          "kr": "빌드코른",
+          "explain": "높은 베개",
+          "price": 7900
         }
       ]
     }
@@ -40,37 +40,37 @@
   "homeOffice": [
     {
       "id": 2,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2019/08/12/05/18/coffee-4400408_960_720.jpg",
       "spot": [
         {
           "x": 30,
           "y": 30,
-          "en": "SOPA",
-          "kr": "소파",
-          "explain": "3인용 소파",
-          "price": 150000
+          "en": "IKEA 365+",
+          "kr": "이케아 365+",
+          "explain": "머그컵, 유리36 cl",
+          "price": 2900
         },
         {
-          "x": 50,
-          "y": 50,
-          "en": "DESK",
-          "kr": "책상",
-          "explain": "원목 책상",
-          "price": 80000
+          "x": 20,
+          "y": 70,
+          "en": "MICKE",
+          "kr": "미케",
+          "explain": "책상, 화이트105x50 cm",
+          "price": 99900
         }
       ]
     },
     {
       "id": 3,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2021/06/22/06/21/laptop-6355280_960_720.jpg",
       "spot": [
         {
-          "x": 30,
-          "y": 30,
-          "en": "CHAIR",
-          "kr": "의자",
-          "explain": "합판 의자",
-          "price": 50000
+          "x": 65,
+          "y": 71,
+          "en": "GRADVIS",
+          "kr": "그라드비스",
+          "explain": "화분, 그레이15 cm",
+          "price": 7900
         }
       ]
     }
@@ -280,114 +280,6 @@
     },
     {
       "id": 15,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "CHAIR",
-          "kr": "의자",
-          "explain": "합판 의자",
-          "price": 50000
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "SOPA",
-          "kr": "소파",
-          "explain": "3인용 소파",
-          "price": 150000
-        },
-        {
-          "x": 50,
-          "y": 50,
-          "en": "DESK",
-          "kr": "책상",
-          "explain": "원목 책상",
-          "price": 80000
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "CHAIR",
-          "kr": "의자",
-          "explain": "합판 의자",
-          "price": 50000
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "SOPA",
-          "kr": "소파",
-          "explain": "3인용 소파",
-          "price": 150000
-        },
-        {
-          "x": 50,
-          "y": 50,
-          "en": "DESK",
-          "kr": "책상",
-          "explain": "원목 책상",
-          "price": 80000
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "CHAIR",
-          "kr": "의자",
-          "explain": "합판 의자",
-          "price": 50000
-        }
-      ]
-    },
-    {
-      "id": 20,
-      "img": "../../image/main/drawer.jpeg",
-      "spot": [
-        {
-          "x": 30,
-          "y": 30,
-          "en": "SOPA",
-          "kr": "소파",
-          "explain": "3인용 소파",
-          "price": 150000
-        },
-        {
-          "x": 50,
-          "y": 50,
-          "en": "DESK",
-          "kr": "책상",
-          "explain": "원목 책상",
-          "price": 80000
-        }
-      ]
-    },
-    {
-      "id": 21,
       "img": "../../image/main/drawer.jpeg",
       "spot": [
         {
