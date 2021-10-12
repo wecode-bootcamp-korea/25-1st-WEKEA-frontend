@@ -78,7 +78,7 @@
   "homePunishing": [
     {
       "id": 4,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2016/01/26/11/09/design-1162241_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -100,7 +100,7 @@
     },
     {
       "id": 5,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2017/07/08/23/48/dining-room-2485946_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -114,7 +114,7 @@
     },
     {
       "id": 6,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2017/08/07/14/12/wall-2604260_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -136,7 +136,7 @@
     },
     {
       "id": 7,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2017/03/25/23/15/kitchen-2174580_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -150,7 +150,7 @@
     },
     {
       "id": 8,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2013/07/19/20/57/chair-165422_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -172,7 +172,7 @@
     },
     {
       "id": 9,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2017/08/07/09/25/house-2601876_1280.jpg",
       "spot": [
         {
           "x": 30,
@@ -186,7 +186,7 @@
     },
     {
       "id": 10,
-      "img": "../../image/main/drawer.jpeg",
+      "img": "https://cdn.pixabay.com/photo/2018/11/09/09/58/interior-3804146_1280.jpg",
       "spot": [
         {
           "x": 30,
