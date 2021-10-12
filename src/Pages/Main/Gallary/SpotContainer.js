@@ -14,8 +14,8 @@ class SpotContainer extends React.Component {
         onMouseLeave={spotOff}
         onMouseEnter={spotOn}
       >
-        {parseInt(currentSpot) === id && <ToolTip item={item}></ToolTip>}
-        <Spot id={id} to=""></Spot>
+        {Number(currentSpot) === id && <ToolTip item={item} />}
+        <Spot id={id} to="" />
       </div>
     );
   }

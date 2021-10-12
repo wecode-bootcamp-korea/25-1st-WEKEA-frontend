@@ -5,12 +5,12 @@ class FilterList extends Component {
     const { name, list, buttonOff } = this.props;
     return (
       <div className="FilterList" onBlur={buttonOff}>
-        {list.map(item => (
-          <div className="listItem">
+        {list.map((item, idx) => (
+          <div key={idx} className="listItem">
             <label className="itemLabel" for={item}>
               {item}
             </label>
-            <input id={item} name={name} type="radio"></input>
+            <input id={item} name={name} type="radio" />
           </div>
         ))}
       </div>

@@ -26,8 +26,9 @@ class FilterBar extends Component {
 
     return (
       <div className="FilterBar">
-        {FILTER_BTNS.map(item => (
+        {FILTER_BTNS.map((item, idx) => (
           <FilterBtn
+            key={idx}
             item={item}
             currentBtn={currentBtn}
             buttonOn={buttonOn}
