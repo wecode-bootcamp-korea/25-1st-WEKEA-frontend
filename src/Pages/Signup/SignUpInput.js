@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 
 class SignupInput extends Component {
   render() {
-    const { inputValue, placeholder, type, text, handleChange, name } =
-      this.props;
+    const { placeholder, type, text, handleChange, name } = this.props;
     return (
       <React.Fragment>
         <input
-          inputValue={inputValue}
           name={name}
           placeholder={placeholder}
           className="signupInput"
@@ -15,7 +13,7 @@ class SignupInput extends Component {
           onChange={handleChange}
         />
 
-        <p className={inputValue > 0 ? 'warnTextFalse' : 'warnText'}>{text}</p>
+        <p className={'warnTextFalse'}>{text}</p>
       </React.Fragment>
     );
   }

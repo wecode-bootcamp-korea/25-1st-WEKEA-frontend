@@ -79,7 +79,7 @@ class SignupMain extends Component {
     const genderValid = gender > 0;
     const favoriteValid = favorite > 0;
     const checkValid = checkAll && checkUser && checkAgree && checkOut;
-    const defaultValue = default_address;
+    // const defaultValue = default_address;
 
     if (
       lastNameValue &&
@@ -124,21 +124,10 @@ class SignupMain extends Component {
   };
 
   render() {
-    const {
-      lastNameValue,
-      firstNameValue,
-      birthDayValue,
-      phoneNumberValue,
-      addressValue,
-      emailValue,
-      passwordValue,
-    } = this.state;
-
     return (
       <article className="SignupMain_article">
         <form>
           <SignupInput
-            inputValue={lastNameValue}
             name="lastNameValue"
             placeholder="성"
             text="성 필드는 필수 필드입니다."
@@ -146,7 +135,6 @@ class SignupMain extends Component {
           />
 
           <SignupInput
-            inputValue={firstNameValue}
             name="firstNameValue"
             placeholder="이름"
             text="이름 필드는 필수 필드입니다."
@@ -166,7 +154,6 @@ class SignupMain extends Component {
           </div>
 
           <SignupInput
-            inputValue={phoneNumberValue}
             name="phoneNumberValue"
             text="휴대폰 필드는 필수 필드입니다."
             placeholder="KR (+82)"
@@ -216,7 +203,6 @@ class SignupMain extends Component {
           />
 
           <SignupInput
-            inputValue={emailValue}
             name="emailValue"
             text="이메일 필드는 필수 필드입니다."
             placeholder="이메일"
@@ -224,7 +210,6 @@ class SignupMain extends Component {
           />
 
           <SignupInput
-            inputValue={passwordValue}
             name="passwordValue"
             text="비밀번호 필드는 필수 필드입니다."
             placeholder="비밀번호"
