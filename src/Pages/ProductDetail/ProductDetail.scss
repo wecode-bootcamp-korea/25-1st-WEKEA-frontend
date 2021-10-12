@@ -8,7 +8,7 @@
   word-break: keep-all;
 
   .detail-main {
-    @include flex;
+    display: flex;
     margin-bottom: 3rem;
 
     .detail-left {
