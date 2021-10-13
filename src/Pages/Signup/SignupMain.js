@@ -7,7 +7,9 @@ import SignupCheckBox from './SignupCheckBox';
 
 class SignupMain extends Component {
   state = {
-    isSelect: false,
+    toggleSecret: false,
+    isSelectFavorite: false,
+    isSelectGender: false,
     isWarn: false,
     lastNameValue: '',
     firstNameValue: '',
@@ -56,7 +58,20 @@ class SignupMain extends Component {
   };
   handleGender = e => {
     this.setState({
-      isSelect: true,
+      isSelectGender: true,
+    });
+  };
+
+  handleFavorite = e => {
+    this.setState({
+      isSelectFavorite: true,
+    });
+  };
+
+  toggleSecret = e => {
+    const { toggleSecret } = this.state;
+    this.setState({
+      toggleSecret: !toggleSecret,
     });
   };
 
@@ -140,7 +155,9 @@ class SignupMain extends Component {
 
   render() {
     const {
-      isSelect,
+      toggleSecret,
+      isSelectFavorite,
+      isSelectGender,
       isWarn,
       lastNameValue,
       firstNameValue,
@@ -152,6 +169,7 @@ class SignupMain extends Component {
       emailValue,
       passwordValue,
     } = this.state;
+
     return (
       <article className="SignupMain_article">
         <form>
@@ -185,7 +203,7 @@ class SignupMain extends Component {
               handleChange={this.handleChange}
             />
             <div className="questionMark" onClick={this.handleWarn}>
-              <i className="fas fa-question-circle"></i>
+              <i className="far fa-question-circle"></i>
             </div>
           </div>
 
@@ -198,11 +216,11 @@ class SignupMain extends Component {
             handleChange={this.handleChange}
           />
           <div className="selectBox">
-            <div className={isSelect ? 'selectTextFalse' : 'selectText'}>
+            <div className={isSelectGender ? 'selectTextFalse' : 'selectText'}>
               성별(선택 사항)
             </div>
             <SignupSelect
-              handleGender={this.handleGender}
+              handleSelected={this.handleGender}
               handleChange={this.handleChange}
               name="gender"
               options={[
@@ -235,18 +253,27 @@ class SignupMain extends Component {
             placeholder="우편번호"
             handleChange={this.handleChange}
           />
-
-          <SignupSelect
-            handleChange={this.handleChange}
-            name="favorite"
-            value="선호하는 매장"
-            options={[
-              { id: 1, option: '고양' },
-              { id: 2, option: '광명' },
-              { id: 3, option: '기흥' },
-              { id: 4, option: '동부산' },
-            ]}
-          />
+          <div className="selectBox">
+            <div
+              className={
+                isSelectFavorite ? 'selectTextFalse' : 'selectTextAddress'
+              }
+            >
+              선호하는 매장
+            </div>
+            <SignupSelect
+              handleSelected={this.handleFavorite}
+              handleChange={this.handleChange}
+              name="favorite"
+              value="선호하는 매장"
+              options={[
+                { id: 1, option: '고양' },
+                { id: 2, option: '광명' },
+                { id: 3, option: '기흥' },
+                { id: 4, option: '동부산' },
+              ]}
+            />
+          </div>
 
           <SignupInput
             inputValue={emailValue}
@@ -256,14 +283,24 @@ class SignupMain extends Component {
             handleChange={this.handleChange}
           />
 
-          <SignupInput
-            inputValue={passwordValue}
-            name="passwordValue"
-            text="비밀번호 필드는 필수 필드입니다."
-            placeholder="비밀번호"
-            type="password"
-            handleChange={this.handleChange}
-          />
+          <div className="signupFormPassword">
+            <SignupInput
+              toggleSecret={toggleSecret}
+              inputValue={passwordValue}
+              name="passwordValue"
+              text="비밀번호 필드는 필수 필드입니다."
+              placeholder="비밀번호"
+              type="password"
+              handleChange={this.handleChange}
+            />
+            <span className="toggleEye" onClick={this.toggleSecret}>
+              {toggleSecret ? (
+                <i className="far fa-eye-slash"></i>
+              ) : (
+                <i className="far fa-eye"></i>
+              )}
+            </span>
+          </div>
 
           <div className="signupCheckBoxFirst">
             <SignupCheckBox

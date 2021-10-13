@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class SignupSelect extends Component {
   render() {
-    const { name, options, handleChange, handleGender } = this.props;
+    const { name, options, handleChange, handleSelected } = this.props;
     return (
       <select
         name={name}
         onChange={handleChange}
-        onClick={handleGender}
+        onClick={handleSelected}
         className="signupSelect"
       >
         {options.map((el, idx) => (

@@ -95,6 +95,7 @@ export default class Login extends Component {
                 )}
               </div>
             </div>
+
             <LoginBtn
               placeholder="로그인"
               className="loginBtn"

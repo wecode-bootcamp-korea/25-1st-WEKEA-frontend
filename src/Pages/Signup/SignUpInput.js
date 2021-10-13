@@ -21,8 +21,15 @@ class SignupInput extends Component {
 
   render() {
     const { forBlur, forFocus } = this.state;
-    const { inputValue, placeholder, type, text, handleChange, name } =
-      this.props;
+    const {
+      toggleSecret,
+      inputValue,
+      placeholder,
+      type,
+      text,
+      handleChange,
+      name,
+    } = this.props;
     return (
       <React.Fragment>
         <input
@@ -36,17 +43,17 @@ class SignupInput extends Component {
               ? 'signupInputNull'
               : 'signupInput'
           }
-          type={type}
+          type={toggleSecret ? null : type}
           onChange={handleChange}
         />
 
-        <p
+        <div
           className={
             forBlur && inputValue.length === 0 ? 'warnText' : 'warnTextFalse'
           }
         >
           {text}
-        </p>
+        </div>
       </React.Fragment>
     );
   }
