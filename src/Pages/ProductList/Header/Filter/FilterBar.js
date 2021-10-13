@@ -42,8 +42,8 @@ class FilterBar extends Component {
 
 const FILTER_BTNS = [
   { name: '정렬', list: ['낮은 가격순', '최고 가격순', '이름'] },
-  { name: '사이즈', list: ['낮은 가격순', '최고 가격순', '이름'] },
-  { name: '가격', list: ['낮은 가격순', '최고 가격순', '이름'] },
+  { name: '사이즈', list: [] },
+  { name: '가격', list: [] },
 ];
 
 export default FilterBar;

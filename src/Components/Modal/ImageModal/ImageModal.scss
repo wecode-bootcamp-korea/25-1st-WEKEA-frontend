@@ -1,0 +1,54 @@
+.ImageModal {
+  .container {
+    top: 2rem;
+    left: 2rem;
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    padding: 2.5rem 6.25rem;
+    border-radius: 8px;
+    animation: imageModalOpen 0.3s;
+
+    @keyframes imageModalOpen {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .main {
+      margin: 2rem 0;
+    }
+
+    .Slider {
+      height: 100%;
+
+      .list-wrapper {
+        height: 100%;
+
+        .slider-list {
+          height: 100%;
+
+          .item {
+            padding: 20px;
+            height: 100%;
+            text-align: center;
+            overflow: hidden;
+            cursor: default;
+
+            img {
+              height: 100%;
+              object-fit: contain;
+            }
+
+            //이미지만 나오는거 확인용
+            div {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

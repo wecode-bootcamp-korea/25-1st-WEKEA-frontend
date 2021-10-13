@@ -2,25 +2,8 @@ import React, { Component } from 'react';
 import './ItemList.scss';
 
 export default class ItemList extends Component {
-  state = {
-    itemList: [],
-  };
-
-  componentDidMount() {
-    fetch('', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          itemList: data,
-        });
-      });
-  }
-
   render() {
-    const { itemList } = this.state;
-    console.log(itemList);
+    const { itemList } = this.props;
     return (
       <div className="ItemList">
         {itemList['products'] &&
