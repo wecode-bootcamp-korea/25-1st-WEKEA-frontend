@@ -6,7 +6,11 @@ export default class SubCategory extends Component {
     return (
       <>
         {sub.map((el, index) => {
-          return <li key={index}>{el.name}</li>;
+          return (
+            <li key={index}>
+              <button>{el.name}</button>
+            </li>
+          );
         })}
       </>
     );
