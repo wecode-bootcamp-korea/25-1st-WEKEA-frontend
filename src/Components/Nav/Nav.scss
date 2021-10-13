@@ -40,7 +40,7 @@
       .search {
         display: flex;
         align-items: center;
-        height: 62px;
+        height: 55px;
         width: 70%;
         margin: 24px 0;
         padding-left: 24px;
@@ -54,16 +54,17 @@
         }
 
         input {
-          height: 40px;
+          height: 30px;
           width: 100%;
           margin-left: 10px;
           margin-right: 30px;
+          padding-bottom: 7px;
           border: 0px;
           background-color: transparent;
           font-size: 22px;
 
           &:focus {
-            outline: 0px;
+            outline: none;
           }
 
           &::placeholder {
@@ -73,7 +74,7 @@
       }
 
       .iconComponent {
-        display: inline-flex;
+        display: flex;
         justify-content: space-evenly;
         width: 200px;
 

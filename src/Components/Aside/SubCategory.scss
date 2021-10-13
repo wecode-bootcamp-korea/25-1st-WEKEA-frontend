@@ -1,11 +1,13 @@
-a {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-}
+.SubCat {
+  a {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+  }
 
-a:hover {
-  text-decoration: underline;
+  a:hover {
+    text-decoration: underline;
+  }
 }
