@@ -1,14 +1,14 @@
 .article {
   position: absolute;
   top: -0.5px;
-  left: -380px;
+  left: -340px;
   height: 100%;
   background: white;
-  width: 380px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 165px;
+  padding-top: 183px;
   transition: left 0.2s;
   border: 1px solid rgb(224, 221, 221);
   z-index: 1;
@@ -18,11 +18,6 @@
     font-weight: bold;
     text-decoration: none;
     margin-bottom: 40px;
-  }
-
-  li {
-    margin-bottom: 11px;
-    font-size: 14px;
   }
 
   button {
@@ -38,5 +33,5 @@
 }
 
 .expandShow {
-  left: 380px;
+  left: 340px;
 }

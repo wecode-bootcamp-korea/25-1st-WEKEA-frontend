@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.scss';
 import { Link } from 'react-router-dom';
-import Icon from './Icon';
 import Aside from '../Aside/Aside';
 
 export default class Nav extends Component {
@@ -56,9 +55,12 @@ export default class Nav extends Component {
               <input type="text" placeholder="검색어 입력" />
             </div>
             <div className="iconComponent">
-              {this.state.iconList.map((el, index) => {
-                return <Icon url={el.url} key={index} />;
-              })}
+              <Link className="icon" to="/Login">
+                <i className="far fa-user"></i>
+              </Link>
+              <Link className="icon" to="/">
+                <i className="fas fa-shopping-basket" to=""></i>
+              </Link>
               <i onClick={this.toggleSideBar} className="fas fa-bars"></i>
             </div>
           </div>

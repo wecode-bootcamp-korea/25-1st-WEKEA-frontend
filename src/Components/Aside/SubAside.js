@@ -9,13 +9,11 @@ export default class SubAside extends Component {
       <div className={`article ${isExpand ? 'expandShow' : ''}`}>
         <div className="SubCat">
           <h3>{whatIPush}</h3>
-          <ul>
-            {category.map((el, index) => {
-              return el.name === whatIPush ? (
-                <SubCategory key={index} sub={el.sub} />
-              ) : null;
-            })}
-          </ul>
+          {category.map((el, index) => {
+            return el.name === whatIPush ? (
+              <SubCategory key={index} sub={el.sub} />
+            ) : null;
+          })}
         </div>
       </div>
     );

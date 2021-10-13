@@ -9,6 +9,16 @@ export default class Aside extends Component {
     category: [],
   };
 
+  // componentDidMount() {
+  //   fetch('http://10.58.5.115:8001/product/subcategories')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         category: data.sub_categories,
+  //       });
+  //     });
+  // }
+
   componentDidMount() {
     fetch('/data/category.json')
       .then(res => res.json())
