@@ -1,9 +1,36 @@
 import React from 'react';
+import Description from '../../../Pages/ProductDetail/Description/Description';
+import Size from '../../../Pages/ProductDetail/Size/Size';
+import Review from '../../../Pages/ProductDetail/Review/Review';
+import Option from '../../../Pages/ProductDetail/Option/Option';
 import './AsideModal.scss';
 
 class AsideModal extends React.Component {
+  changeComponent = selectedBtn => {
+    const { product, selectedOption, changeOption } = this.props;
+
+    switch (selectedBtn) {
+      case 1:
+        return <Description description={product.description} />;
+      case 2:
+        return <Size size={product.size} />;
+      case 3:
+        return <Review />;
+      case 4:
+        return (
+          <Option
+            option={product.size}
+            selectedOption={selectedOption}
+            changeOption={option => changeOption(option)}
+          />
+        );
+      default:
+        break;
+    }
+  };
+
   render() {
-    const { closeModal } = this.props;
+    const { selectedBtn, closeModal } = this.props;
 
     return (
       <div className="AsideModal modal">
@@ -11,13 +38,7 @@ class AsideModal extends React.Component {
           <button className="close-button round-button" onClick={closeModal}>
             <i className="fas fa-times" />
           </button>
-          <h2 className="title">제품 설명</h2>
-          <div className="main">
-            침대 협탁으로 사용할 수도 있습니다.
-            <br />
-            <br />벽 재질에 맞는 고정장치를 사용해야 합니다. 제품을 설치할 벽
-            재질에 맞는 고정장치를 사용하세요.
-          </div>
+          {this.changeComponent(selectedBtn)}
         </div>
       </div>
     );

@@ -1,8 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ImageModal from '../../Components/Modal/ImageModal/ImageModal';
 import AsideModal from '../../Components/Modal/AsideModal/AsideModal';
 import Slider from '../../Components/Slider/Slider';
 import './ProductDetail.scss';
+
+const INFORMATION_BTN_LIST = [
+  { id: 1, name: '제품 설명' },
+  { id: 2, name: '제품 크기' },
+  { id: 3, name: '상품평' },
+];
 
 class ProductDetail extends React.Component {
   constructor() {
@@ -12,30 +19,57 @@ class ProductDetail extends React.Component {
       product: {},
       isImageModalShow: false,
       isAsideModalShow: false,
-      selectedImg: 0,
+      selectedImg: -1,
+      selectedBtn: 0,
       selectedOption: 1,
+      isInWishList: false,
     };
   }
 
   componentDidMount() {
-    fetch('/data/productDetailData.json', {
+    fetch(`http://10.58.5.115:8000/product/${this.props.match.params.id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ productList: data, product: data[0] });
+        this.setState({
+          product: data.product,
+        });
       });
   }
 
-  showModal = (isNameShow, id) => {
+  showImageModal = id => {
     this.setState({
-      [isNameShow]: true,
+      isImageModalShow: true,
       selectedImg: id,
+    });
+  };
+
+  showAsideModal = id => {
+    this.setState({
+      isAsideModalShow: true,
+      selectedBtn: id,
     });
   };
 
   closeModal = isNameShow => {
     this.setState({ [isNameShow]: false });
+  };
+
+  makeSummary = description => {
+    return description.split('.')[0] + '.';
+  };
+
+  changeOption = option => {
+    this.setState({ selectedOption: option, isAsideModalShow: false });
+  };
+
+  addToCart = () => {
+    this.props.history.push('/cart');
+  };
+
+  toggleIsInWishList = () => {
+    this.setState({ isInWishList: !this.state.isInWishList });
   };
 
   render() {
@@ -45,61 +79,66 @@ class ProductDetail extends React.Component {
       isImageModalShow,
       isAsideModalShow,
       selectedImg,
+      selectedBtn,
+      selectedOption,
+      isInWishList,
     } = this.state;
 
-    //scss파일에서 src 경로 에러 뜨는거 임시방편
-    const imgCursorStyle = {
-      cursor: "URL('/image/zoomCursor.png') 20 20, zoom-in",
-    };
+    console.log(product);
 
+    if (!Object.keys(product).length) return <div>Loading...</div>;
     return (
       <div className="ProductDetail">
+        <div className="navigation">
+          <span>{product.main_category.name}</span>{' '}
+          <i className="fas fa-angle-right" />{' '}
+          <Link to="/">{product.sub_category.name}</Link>
+        </div>
         <div className="detail-main">
           <div className="detail-left">
             <div className="detail-image">
-              {product.img &&
-                product.img.map(el => {
-                  return (
-                    <div
-                      className="image-wrapper"
-                      key={el.id}
-                      onClick={() => this.showModal('isImageModalShow', el.id)}
-                      style={imgCursorStyle}
-                    >
-                      <img src={`/image/${el.url}`} alt="상품 이미지" />
-                    </div>
-                  );
-                })}
+              {product.images.map((el, idx) => {
+                return (
+                  <div
+                    className="image-wrapper"
+                    key={el.id}
+                    onClick={() => this.showImageModal(idx)}
+                  >
+                    <img src={el['product_image']} alt="상품 이미지" />
+                  </div>
+                );
+              })}
               {isImageModalShow && (
                 <ImageModal
-                  imageList={product.img}
+                  imageList={product.images}
                   selectedImg={selectedImg}
                   closeModal={() => this.closeModal('isImageModalShow')}
                 />
               )}
             </div>
             <div className="detail-information">
-              <div className="summary">{product.summary}</div>
+              <div className="summary">
+                {this.makeSummary(product.description)}
+              </div>
               <section className="information-section">
-                <button
-                  className="modal-button"
-                  onClick={() => this.showModal('isAsideModalShow', 0)}
-                >
-                  <span className="title">제품 설명</span>
-                  <i className="fas fa-arrow-right" />
-                </button>
-                <button className="modal-button">
-                  <span className="title">제품 크기</span>
-                  <i className="fas fa-arrow-right" />
-                </button>
-                <button className="modal-button">
-                  <span className="title">상품평</span>
-                  <i className="fas fa-arrow-right" />
-                </button>
+                {INFORMATION_BTN_LIST.map(el => (
+                  <button
+                    key={el.id}
+                    className="modal-button"
+                    onClick={() => this.showAsideModal(el.id)}
+                  >
+                    <span className="title">{el.name}</span>
+                    <i className="fas fa-arrow-right" />
+                  </button>
+                ))}
               </section>
               {isAsideModalShow && (
                 <AsideModal
+                  product={product}
                   isNameShow="isAsideModalShow"
+                  selectedBtn={selectedBtn}
+                  selectedOption={selectedOption}
+                  changeOption={option => this.changeOption(option)}
                   closeModal={() => this.closeModal('isAsideModalShow')}
                 />
               )}
@@ -117,35 +156,46 @@ class ProductDetail extends React.Component {
             <header className="short-package">
               <div className="package-main">
                 <div className="name-wrapper">
-                  <h1 className="name">{product.name}</h1>
-                  <div className="description">{product.description}</div>
+                  <h1 className="name">
+                    {product.foreign_name} {product.korea_name}
+                  </h1>
+                  <div className="description">{product.information}</div>
                 </div>
                 <div className="price-wrapper">
                   <span className="won">￦</span>
                   <span className="price">
-                    {product.price && product.price.toLocaleString()}
+                    {(
+                      Number(product.price) + (selectedOption === 2 ? 20000 : 0)
+                    ).toLocaleString()}
                   </span>
                 </div>
               </div>
               <div className="rating"></div>
             </header>
             <section className="option-section">
-              <button className="modal-button">
+              <button
+                className="modal-button"
+                onClick={() => this.showAsideModal(4)}
+              >
                 <div>
                   <span className="type title">규격</span>
                   <span className="selected">
-                    {product.option && product.option[0].tag}
+                    {Math.round(+product.size.width / 10) * 10}x
+                    {Math.round(+product.size.length / 10) * 10} cm
                   </span>
                 </div>
                 <i className="fas fa-angle-right" />
               </button>
             </section>
             <section className="button-section">
-              <button className="buynow-button">
+              <button className="buynow-button" onClick={this.addToCart}>
                 <span>구매하기</span>
               </button>
-              <button className="heart-button">
-                <i className="far fa-heart" />
+              <button
+                className="heart-button"
+                onClick={this.toggleIsInWishList}
+              >
+                <i className={`${isInWishList ? 'fas' : 'far'} fa-heart`} />
               </button>
             </section>
             <section className="available-section">
