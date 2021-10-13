@@ -7,6 +7,8 @@ import SignupCheckBox from './SignupCheckBox';
 
 class SignupMain extends Component {
   state = {
+    isSelect: false,
+    isWarn: false,
     lastNameValue: '',
     firstNameValue: '',
     birthDayValue: '',
@@ -27,6 +29,7 @@ class SignupMain extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
+
     if (name === 'gender' || name === 'favorite') {
       this.setState({
         [name]: Number(value),
@@ -42,6 +45,18 @@ class SignupMain extends Component {
     const { name } = e.target;
     this.setState({
       [name]: true,
+    });
+  };
+
+  handleWarn = e => {
+    const { isWarn } = this.state;
+    this.setState({
+      isWarn: !isWarn,
+    });
+  };
+  handleGender = e => {
+    this.setState({
+      isSelect: true,
     });
   };
 
@@ -124,10 +139,24 @@ class SignupMain extends Component {
   };
 
   render() {
+    const {
+      isSelect,
+      isWarn,
+      lastNameValue,
+      firstNameValue,
+      birthDayValue,
+      phoneNumberValue,
+      postNumberValue,
+      addressValue,
+      roadNumberValue,
+      emailValue,
+      passwordValue,
+    } = this.state;
     return (
       <article className="SignupMain_article">
         <form>
           <SignupInput
+            inputValue={lastNameValue}
             name="lastNameValue"
             placeholder="성"
             text="성 필드는 필수 필드입니다."
@@ -135,6 +164,7 @@ class SignupMain extends Component {
           />
 
           <SignupInput
+            inputValue={firstNameValue}
             name="firstNameValue"
             placeholder="이름"
             text="이름 필드는 필수 필드입니다."
@@ -142,42 +172,57 @@ class SignupMain extends Component {
           />
 
           <div className="questionBox">
+            {
+              <div className={isWarn ? 'warnOn' : 'warnOff'}>
+                만 14세 이상만 가입할 수 있습니다.
+              </div>
+            }
             <SignupInput
+              inputValue={birthDayValue}
               name="birthDayValue"
               placeholder="생일 (YYYY-MM-DD)"
               text="생일 필드는 필수 필드입니다."
               handleChange={this.handleChange}
             />
-            <div className="questionMark">
+            <div className="questionMark" onClick={this.handleWarn}>
               <i className="fas fa-question-circle"></i>
             </div>
           </div>
 
           <SignupInput
+            handleGender={this.handleGender}
+            inputValue={phoneNumberValue}
             name="phoneNumberValue"
             text="휴대폰 필드는 필수 필드입니다."
             placeholder="KR (+82)"
             handleChange={this.handleChange}
           />
-
-          <SignupSelect
-            handleChange={this.handleChange}
-            name="gender"
-            options={[
-              { id: 0, option: '' },
-              { id: 1, option: '남성' },
-              { id: 2, option: '여성' },
-              { id: 3, option: '선택안함' },
-            ]}
-          />
+          <div className="selectBox">
+            <div className={isSelect ? 'selectTextFalse' : 'selectText'}>
+              성별(선택 사항)
+            </div>
+            <SignupSelect
+              handleGender={this.handleGender}
+              handleChange={this.handleChange}
+              name="gender"
+              options={[
+                { id: 0, option: '' },
+                { id: 1, option: '남성' },
+                { id: 2, option: '여성' },
+                { id: 3, option: '선택안함' },
+              ]}
+            />
+          </div>
 
           <SignupInput
+            inputValue={roadNumberValue}
             name="roadNumberValue"
             placeholder="도로명 주소"
             handleChange={this.handleChange}
           />
 
           <SignupInput
+            inputValue={addressValue}
             name="addressValue"
             text="상세 주소 필드는 필수 필드입니다."
             placeholder="상세 주소"
@@ -185,6 +230,7 @@ class SignupMain extends Component {
           />
 
           <SignupInput
+            inputValue={postNumberValue}
             name="postNumberValue"
             placeholder="우편번호"
             handleChange={this.handleChange}
@@ -203,6 +249,7 @@ class SignupMain extends Component {
           />
 
           <SignupInput
+            inputValue={emailValue}
             name="emailValue"
             text="이메일 필드는 필수 필드입니다."
             placeholder="이메일"
@@ -210,6 +257,7 @@ class SignupMain extends Component {
           />
 
           <SignupInput
+            inputValue={passwordValue}
             name="passwordValue"
             text="비밀번호 필드는 필수 필드입니다."
             placeholder="비밀번호"
