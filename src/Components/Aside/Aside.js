@@ -14,42 +14,53 @@ export default class Aside extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          category: data.main_categories,
+          category: data.categories,
         });
       });
   }
 
   render() {
-    const { isVisible, toggleSideBar, expandBar, isExpand } = this.props;
+    const { isVisible, isExpand, toggleSideBar, expandBar, whatIPush } =
+      this.props;
     const { category } = this.state;
     return (
       <>
-        <div>
-          <div className={`aside ${isVisible ? 'show' : 'hide'}`}>
-            <i className="fas fa-times" onClick={toggleSideBar}></i>
-            <Link to="/">
-              <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
-            </Link>
+        <div className={`aside ${isVisible ? 'show' : 'hide'}`}>
+          <i className="fas fa-times" onClick={toggleSideBar}></i>
+          <Link to="/">
+            <img className="navLogo" alt="wekeaLogo" src="/image/logo.png" />
+          </Link>
 
-            <h1>모든 제품</h1>
-            <ul>
-              {category.map(el => {
-                return (
-                  <Category key={el.id} name={el.name} expandBar={expandBar} />
-                );
-              })}
-            </ul>
-          </div>
-          {category.map(el => {
-            return (
-              <SubAside
-                isExpand={isExpand}
-                isVisible={isVisible}
-                catName={category.name}
-              />
-            );
-          })}
+          <h1>모든 제품</h1>
+          <ul>
+            {category.map((el, index) => {
+              return (
+                <Category key={index} name={el.name} expandBar={expandBar} />
+              );
+            })}
+          </ul>
         </div>
+        {whatIPush === '침대/매트리스' && (
+          <SubAside
+            isExpand={isExpand}
+            whatIPush={whatIPush}
+            category={category}
+          />
+        )}
+        {whatIPush === '아웃도어' && (
+          <SubAside
+            isExpand={isExpand}
+            whatIPush={whatIPush}
+            category={category}
+          />
+        )}
+        {whatIPush === '홈오피스' && (
+          <SubAside
+            isExpand={isExpand}
+            whatIPush={whatIPush}
+            category={category}
+          />
+        )}
       </>
     );
   }
