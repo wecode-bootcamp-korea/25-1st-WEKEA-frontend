@@ -109,7 +109,7 @@ class SignupMain extends Component {
     const genderValid = gender > 0;
     const favoriteValid = favorite > 0;
     const checkValid = checkAll && checkUser && checkAgree && checkOut;
-    // const defaultValue = default_address;
+    const defaultValue = default_address;
 
     if (
       lastNameValue &&
@@ -125,7 +125,7 @@ class SignupMain extends Component {
       favoriteValid &&
       checkValid
     ) {
-      fetch('http://10.58.2.67:8100/user/signup', {
+      fetch('http://10.58.5.69:8000/user/signup', {
         method: 'POST',
         body: JSON.stringify({
           last_name: lastNameValue,
@@ -134,11 +134,10 @@ class SignupMain extends Component {
           password: passwordValue,
           mobile_phone: phoneNumberValue,
           birthday: birthDayValue,
-
           zip_code: postNumberValue,
           name_of_street: roadNumberValue,
           detail_address: addressValue,
-          default_address: default_address,
+          default_address: defaultValue,
           gender: gender,
           favorite_store: favorite,
         }),

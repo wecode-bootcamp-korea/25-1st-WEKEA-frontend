@@ -23,36 +23,39 @@ export default class Login extends Component {
     });
   };
   goToLogin = e => {
+    e.preventDefault();
+
     const { idValue, passwordValue } = this.state;
 
     const idValid =
       idValue.includes('@') && idValue.includes('.com') && idValue.length > 5;
     const passwordValid = passwordValue.length >= 8;
     // const { idValue, passwordValue } = this.state;
-    if (idValid && passwordValid) {
-      this.props.history.push('/');
-    } else {
-      alert('아이디 비밀번호 확인부탁');
-    }
-    // if( isValid && passwordValid ) {
-    // fetch('http://10.58.5.115:8000/user/login', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     email: idValue,
-    //     password: passwordValue,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     if (response.token) {
-    //       localStorage.setItem('token', response.token);
-    //       this.props.history.push('/');
-    //
-    //     }
-    //   });
+    // if (idValid && passwordValid) {
+    //   this.props.history.push('/');
     // } else {
-    //   alert("id 와 비밀번호를 확인해주세요")
+    //   alert('아이디 비밀번호 확인부탁');
     // }
+    if (idValid && passwordValid) {
+      fetch('http://10.58.5.69:8000/user/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: idValue,
+          password: passwordValue,
+        }),
+      })
+        .then(response => response.json())
+        .then(response => {
+          if (response.access_token) {
+            localStorage.setItem('token', response.access_token);
+            this.props.history.push('/');
+          } else {
+            alert('id 와 비밀번호를 확인해주세요');
+          }
+        });
+    } else {
+      alert('id 와 비밀번호를 확인해주세요');
+    }
   };
 
   goToSignUp = e => {
