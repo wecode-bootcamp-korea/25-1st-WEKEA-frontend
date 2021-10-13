@@ -4,7 +4,6 @@ import './Styles/common.scss';
 import './Styles/reset.scss';
 import './Styles/variable.scss';
 
-import Aside from './Components/Aside/Aside';
 import Footer from './Components/Footer/Footer';
 import Nav from './Components/Nav/Nav';
 import Login from './Pages/Login/Login';
@@ -13,19 +12,35 @@ import ProductDetail from './Pages/ProductDetail/ProductDetail';
 import ProductList from './Pages/ProductList/ProductList';
 import Signup from './Pages/Signup/Signup.js';
 class Routes extends React.Component {
+  state = {
+    isComponentOn: true,
+  };
+
+  toggleComponent = () => {
+    const { isComponentOn } = this.state;
+    this.setState({
+      isComponentOn: !isComponentOn,
+    });
+  };
+
   render() {
+    const { isComponentOn } = this.state;
+    const { toggleComponent } = this;
     return (
       <Router>
+        {isComponentOn && <Nav />}
         <Switch>
-          <Route exact path="/aside" component={Aside} />
-          <Route exact path="/footer" component={Footer} />
-          <Route exact path="/nav" component={Nav} />
-          <Route exact path="/login" component={Login} />
+          <Route
+            exact
+            path="/login"
+            render={() => <Login hidden={toggleComponent} />}
+          />
           <Route exact path="/" component={Main} />
           <Route exact path="/product-detail" component={ProductDetail} />
           <Route exact path="/product-list" component={ProductList} />
           <Route exact path="/signup" component={Signup} />
         </Switch>
+        <Footer />
       </Router>
     );
   }
