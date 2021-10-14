@@ -4,7 +4,9 @@ import ImageModal from '../../Components/Modal/ImageModal/ImageModal';
 import AsideModal from '../../Components/Modal/AsideModal/AsideModal';
 import Slider from '../../Components/Slider/Slider';
 import Stars from '../../Components/Stars/Stars';
+import Loading from '../../Components/Loading/Loading';
 import './ProductDetail.scss';
+import { API } from '../../config';
 
 const INFORMATION_BTN_LIST = [
   { id: 1, name: '제품 설명' },
@@ -37,6 +39,16 @@ class ProductDetail extends React.Component {
           product: data.product,
         });
       });
+
+    fetch('/data/productDetailData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productList: data,
+        });
+      });
   }
 
   showImageModal = id => {
@@ -66,7 +78,13 @@ class ProductDetail extends React.Component {
   };
 
   addToCart = () => {
-    this.props.history.push('/cart');
+    if (localStorage.getItem('token')) {
+      alert('장바구니에 추가되었습니다.');
+      this.props.history.push('/cart');
+    } else {
+      alert('로그인이 필요합니다.');
+      this.props.history.push('/login');
+    }
   };
 
   toggleIsInWishList = () => {
@@ -85,7 +103,7 @@ class ProductDetail extends React.Component {
       isInWishList,
     } = this.state;
 
-    if (!Object.keys(product).length) return <div>Loading...</div>;
+    if (!Object.keys(product).length) return <Loading />;
     return (
       <div className="ProductDetail">
         <div className="navigation">
