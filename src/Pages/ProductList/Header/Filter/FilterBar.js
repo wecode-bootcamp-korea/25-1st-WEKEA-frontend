@@ -20,8 +20,6 @@ class FilterBar extends Component {
     });
   };
 
-  button;
-
   render() {
     const { buttonOn, buttonOff } = this;
     const { currentBtn } = this.state;
