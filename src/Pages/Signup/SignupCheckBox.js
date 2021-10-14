@@ -15,7 +15,9 @@ class SignupCheckBox extends Component {
         />
         <label className="signupCheckBox">
           {placeholder}
-          <Link to="/">{checkboxLink}</Link>
+          <Link to="/" className="checkBoxLink">
+            {checkboxLink}
+          </Link>
         </label>
       </div>
     );
