@@ -16,5 +16,66 @@
 }
 
 .Item {
-  margin-top: 1rem;
+  position: relative;
+  margin: 1rem 0;
+  cursor: pointer;
+
+  input {
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .checkbox {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    padding: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .imgWrapper {
+    object-fit: cover;
+    margin-bottom: 2em;
+  }
+
+  .name {
+    margin-bottom: 0.4em;
+    font-weight: bold;
+    color: $lightblack;
+  }
+
+  .info {
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    color: $gray;
+  }
+
+  .unit {
+    margin-right: 0.3em;
+  }
+
+  .price {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  i {
+    position: absolute;
+    right: 1.7rem;
+    bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: rgb(0, 80, 172);
+  }
+
+  .option {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: $gray;
+  }
 }

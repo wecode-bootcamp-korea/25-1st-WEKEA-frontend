@@ -11,15 +11,15 @@ export default class ProductList extends Component {
   };
 
   componentDidMount() {
-    fetch('', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          itemList: data,
-        });
-      });
+    // fetch('http://10.58.5.115:8000/products/subcategories?subcategory_id=1', {
+    //   method: 'GET',
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       itemList: data,
+    //     });
+    //   });
     fetch('', {
       method: 'GET',
     })
@@ -32,6 +32,7 @@ export default class ProductList extends Component {
   }
   render() {
     const { itemList, sliderList } = this.state;
+    console.log(this.props);
     return (
       <div className="ProductList">
         <Header />
