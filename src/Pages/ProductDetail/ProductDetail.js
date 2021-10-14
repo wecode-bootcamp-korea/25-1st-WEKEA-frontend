@@ -102,7 +102,7 @@ class ProductDetail extends React.Component {
       selectedOption,
       isInWishList,
     } = this.state;
-    console.log(localStorage.getItem('token'));
+
     if (!Object.keys(product).length) return <Loading />;
     return (
       <div className="ProductDetail">
