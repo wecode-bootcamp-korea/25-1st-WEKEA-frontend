@@ -12,7 +12,7 @@ export default class Main extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/main/Gallary.json', {
+    fetch('/data/main/Gallary.json', {
       method: 'GET',
     })
       .then(res => res.json())

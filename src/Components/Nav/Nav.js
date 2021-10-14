@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.scss';
 import { Link, withRouter } from 'react-router-dom';
-import Icon from './Icon';
 import Aside from '../Aside/Aside';
 
 class Nav extends Component {
@@ -9,11 +8,13 @@ class Nav extends Component {
     iconList: [],
     isVisible: false,
     isExpand: false,
+    whatIPush: '',
   };
 
-  expandBar = () => {
+  expandBar = e => {
     this.setState({
       isExpand: !this.state.isExpand,
+      whatIPush: e.target.innerText,
     });
   };
 
@@ -36,6 +37,7 @@ class Nav extends Component {
 
   render() {
     const { pathname } = this.props.location;
+    const { whatIPush } = this.state;
 
     return (
       <>
@@ -49,7 +51,7 @@ class Nav extends Component {
 
             <div className="navBottomBorder">
               <div className="navBar">
-                <Link to="nav">
+                <Link to="/">
                   <img
                     className="navLogo"
                     alt="wekeaLogo"
@@ -61,19 +63,23 @@ class Nav extends Component {
                   <input type="text" placeholder="검색어 입력" />
                 </div>
                 <div className="iconComponent">
-                  {this.state.iconList.map(el => {
-                    return <Icon url={el.url} id={el.id} />;
-                  })}
+                  <Link className="icon" to="/login">
+                    <i className="far fa-user"></i>
+                  </Link>
+                  <Link className="icon" to="/cart">
+                    <i className="fas fa-shopping-basket" to=""></i>
+                  </Link>
                   <i onClick={this.toggleSideBar} className="fas fa-bars"></i>
                 </div>
               </div>
-              <Aside
-                isVisible={this.state.isVisible}
-                toggleSideBar={this.toggleSideBar}
-                expandBar={this.expandBar}
-                isExpand={this.state.isExpand}
-              />
             </div>
+            <Aside
+              isVisible={this.state.isVisible}
+              isExpand={this.state.isExpand}
+              toggleSideBar={this.toggleSideBar}
+              expandBar={this.expandBar}
+              whatIPush={whatIPush}
+            />
           </div>
         )}
       </>
