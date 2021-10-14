@@ -4,11 +4,10 @@ import './SubCategory.scss';
 
 export default class SubCategory extends Component {
   render() {
-    const { sub } = this.props;
-    console.log(sub);
+    const { subCategories } = this.props;
     return (
       <>
-        {sub.map((el, index) => {
+        {subCategories.map((el, index) => {
           return (
             <Link to={`/product-list/${el.id}`} key={index}>
               {el.name}

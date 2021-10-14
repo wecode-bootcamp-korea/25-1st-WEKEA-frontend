@@ -11,7 +11,7 @@ export default class SubAside extends Component {
           <h3>{whatIPush}</h3>
           {category.map((el, index) => {
             return el.name === whatIPush ? (
-              <SubCategory key={index} sub={el.sub} />
+              <SubCategory key={index} subCategories={el.sub_categories} />
             ) : null;
           })}
         </div>
