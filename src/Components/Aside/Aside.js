@@ -30,7 +30,7 @@ export default class Aside extends Component {
   }
 
   render() {
-    const { isVisible, isExpand, toggleSideBar, expandBar, whatIPush } =
+    const { isVisible, isExpand, toggleSideBar, expandBar, selectedBtn } =
       this.props;
     const { category } = this.state;
     return (
@@ -50,24 +50,24 @@ export default class Aside extends Component {
             })}
           </ul>
         </div>
-        {whatIPush === '침대/매트리스' && (
+        {selectedBtn === '침대/매트리스' && (
           <SubAside
             isExpand={isExpand}
-            whatIPush={whatIPush}
+            selectedBtn={selectedBtn}
             category={category}
           />
         )}
-        {whatIPush === '아웃도어' && (
+        {selectedBtn === '아웃도어' && (
           <SubAside
             isExpand={isExpand}
-            whatIPush={whatIPush}
+            selectedBtn={selectedBtn}
             category={category}
           />
         )}
-        {whatIPush === '홈오피스' && (
+        {selectedBtn === '홈오피스' && (
           <SubAside
             isExpand={isExpand}
-            whatIPush={whatIPush}
+            selectedBtn={selectedBtn}
             category={category}
           />
         )}
