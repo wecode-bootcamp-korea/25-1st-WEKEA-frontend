@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import SignupInput from './SignUpInput';
+import SignupInput from './SignupInput';
 import SignupSelect from './SignupSelect';
 import SignupButton from './SignupButton';
 import SignupCheckBox from './SignupCheckBox';
