@@ -68,6 +68,7 @@ export default class Login extends Component {
     return (
       <section className="loginMainSection">
         <LoginTextPage />
+
         <article className="loginMainArticle">
           <div className="loginForm">
             <LoginInput
@@ -79,6 +80,7 @@ export default class Login extends Component {
               linkText="일회용 코드로 로그인"
               warnText="이메일 또는 휴대폰 번호를 입력해주세요"
             />
+
             <div className="loginFormPassword">
               <LoginInput
                 isPasswordSectetOnOff={isPasswordSectetOnOff}
