@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { API } from '../../config.js';
 import LoginBtn from './LoginBtn';
 import LoginInput from './LoginInput';
 import LoginTextPage from './LoginTextPage';
+
 import './Login.scss';
 
 export default class Login extends Component {
@@ -10,18 +12,21 @@ export default class Login extends Component {
     passwordValue: '',
     isPasswordSectetOnOff: false,
   };
+
   handleSecret = e => {
     const { isPasswordSectetOnOff } = this.state;
     this.setState({
       isPasswordSectetOnOff: !isPasswordSectetOnOff,
     });
   };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
     });
   };
+
   goToLogin = e => {
     e.preventDefault();
 
@@ -30,14 +35,9 @@ export default class Login extends Component {
     const idValid =
       idValue.includes('@') && idValue.includes('.com') && idValue.length > 5;
     const passwordValid = passwordValue.length >= 8;
-    // const { idValue, passwordValue } = this.state;
-    // if (idValid && passwordValid) {
-    //   this.props.history.push('/');
-    // } else {
-    //   alert('아이디 비밀번호 확인부탁');
-    // }
+
     if (idValid && passwordValid) {
-      fetch('http://10.58.5.69:8000/user/login', {
+      fetch(`${API}/user/login`, {
         method: 'POST',
         body: JSON.stringify({
           email: idValue,

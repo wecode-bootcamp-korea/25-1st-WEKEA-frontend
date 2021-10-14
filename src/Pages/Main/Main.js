@@ -11,20 +11,20 @@ export default class Main extends Component {
     homePunishing: [],
   };
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/main/Gallary.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        const { newProduct, homeOffice, homePunishing } = data;
-        this.setState({
-          newProduct: newProduct,
-          homeOffice: homeOffice,
-          homePunishing: homePunishing,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/data/main/Gallary.json', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const { newProduct, homeOffice, homePunishing } = data;
+  //       this.setState({
+  //         newProduct: newProduct,
+  //         homeOffice: homeOffice,
+  //         homePunishing: homePunishing,
+  //       });
+  //     });
+  // }
 
   render() {
     const { newProduct, homeOffice, homePunishing } = this.state;

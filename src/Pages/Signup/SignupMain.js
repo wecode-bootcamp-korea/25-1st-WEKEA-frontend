@@ -4,29 +4,32 @@ import SignupInput from './SignupInput';
 import SignupSelect from './SignupSelect';
 import SignupButton from './SignupButton';
 import SignupCheckBox from './SignupCheckBox';
+import { API } from '../../config.js';
 
 class SignupMain extends Component {
   state = {
+    lastName: '',
+    firstName: '',
+    birthDay: '',
+    phoneNumber: '',
+    postNumber: 0,
+    roadNumber: '',
+    address: '',
+    email: '',
+    password: '',
+    defaultAddress: 0,
+    gender: 0,
+    favorite: 0,
+
+    isAgreementChecked: false,
+    isPersonalInfoChecked: false,
+    isConsignmentChecked: false,
+    isTransferChecked: false,
+
     toggleSecret: false,
     isSelectFavorite: false,
     isSelectGender: false,
     isWarn: false,
-    lastNameValue: '',
-    firstNameValue: '',
-    birthDayValue: '',
-    phoneNumberValue: '',
-    postNumberValue: 0,
-    roadNumberValue: '',
-    addressValue: '',
-    emailValue: '',
-    passwordValue: '',
-    default_address: 0,
-    gender: 0,
-    favorite: 0,
-    checkAll: false,
-    checkUser: false,
-    checkAgree: false,
-    checkOut: false,
   };
 
   handleChange = e => {
@@ -78,42 +81,43 @@ class SignupMain extends Component {
   handleClick = e => {
     e.preventDefault();
     const {
-      default_address,
-      lastNameValue,
-      firstNameValue,
-      birthDayValue,
-      phoneNumberValue,
-      roadNumberValue,
-      addressValue,
-      postNumberValue,
-      emailValue,
-      passwordValue,
+      defaultAddress,
+      lastName,
+      firstName,
+      birthDay,
+      phoneNumber,
+      roadNumber,
+      address,
+      postNumber,
+      email,
+      password,
       gender,
       favorite,
-      checkAll,
-      checkUser,
-      checkAgree,
-      checkOut,
+      isAgreementChecked,
+      isPersonalInfoChecked,
+      isConsignmentChecked,
+      isTransferChecked,
     } = this.state;
 
-    const birthDayValid = birthDayValue.includes('-');
-    const phoneNumberValid = phoneNumberValue.length > 9;
-    const roadNumberValid = roadNumberValue.includes('길');
-    const addressValid = addressValue.length > 5;
-    const postNumberValid = postNumberValue.length === 5;
+    const birthDayValid = birthDay.includes('-');
+    const phoneNumberValid = phoneNumber.length > 9;
+    const roadNumberValid = roadNumber.includes('길');
+    const addressValid = address.length > 5;
+    const postNumberValid = postNumber.length === 5;
     const emailValid =
-      emailValue.includes('@') &&
-      emailValue.includes('.com') &&
-      emailValue.length > 5;
-    const passwordValid = passwordValue.length > 8;
+      email.includes('@') && email.includes('.com') && email.length > 5;
+    const passwordValid = password.length > 8;
     const genderValid = gender > 0;
     const favoriteValid = favorite > 0;
-    const checkValid = checkAll && checkUser && checkAgree && checkOut;
-    const defaultValue = default_address;
+    const checkValid =
+      isAgreementChecked &&
+      isPersonalInfoChecked &&
+      isConsignmentChecked &&
+      isTransferChecked;
 
     if (
-      lastNameValue &&
-      firstNameValue &&
+      lastName &&
+      firstName &&
       birthDayValid &&
       phoneNumberValid &&
       roadNumberValid &&
@@ -125,29 +129,27 @@ class SignupMain extends Component {
       favoriteValid &&
       checkValid
     ) {
-      fetch('http://10.58.5.69:8000/user/signup', {
+      fetch(`${API}/user/signup`, {
         method: 'POST',
         body: JSON.stringify({
-          last_name: lastNameValue,
-          first_name: firstNameValue,
-          email: emailValue,
-          password: passwordValue,
-          mobile_phone: phoneNumberValue,
-          birthday: birthDayValue,
-          zip_code: postNumberValue,
-          name_of_street: roadNumberValue,
-          detail_address: addressValue,
-          default_address: defaultValue,
+          last_name: lastName,
+          first_name: firstName,
+          email: email,
+          password: password,
+          mobile_phone: phoneNumber,
+          birthday: birthDay,
+          zip_code: postNumber,
+          name_of_street: roadNumber,
+          detail_address: address,
+          default_address: defaultAddress,
           gender: gender,
           favorite_store: favorite,
         }),
       })
         .then(response => response.json())
         .then(response => {
-          // if (response.token) {
-          //   localStorage.setItem('token', response.token);
+          alert('환영합니다! 회원가입이 완료되었습니다.');
           this.props.history.push('/login');
-          // }
         });
     }
   };
@@ -158,45 +160,45 @@ class SignupMain extends Component {
       isSelectFavorite,
       isSelectGender,
       isWarn,
-      lastNameValue,
-      firstNameValue,
-      birthDayValue,
-      phoneNumberValue,
-      postNumberValue,
-      addressValue,
-      roadNumberValue,
-      emailValue,
-      passwordValue,
+      lastName,
+      firstName,
+      birthDay,
+      phoneNumber,
+      postNumber,
+      address,
+      roadNumber,
+      email,
+      password,
     } = this.state;
 
     return (
       <article className="SignupMain_article">
         <form>
           <SignupInput
-            inputValue={lastNameValue}
-            name="lastNameValue"
+            inputValue={lastName}
+            name="lastName"
             placeholder="성"
             text="성 필드는 필수 필드입니다."
             handleChange={this.handleChange}
           />
 
           <SignupInput
-            inputValue={firstNameValue}
-            name="firstNameValue"
+            inputValue={firstName}
+            name="firstName"
             placeholder="이름"
             text="이름 필드는 필수 필드입니다."
             handleChange={this.handleChange}
           />
-
           <div className="questionBox">
             {
               <div className={isWarn ? 'warnOn' : 'warnOff'}>
                 만 14세 이상만 가입할 수 있습니다.
               </div>
             }
+
             <SignupInput
-              inputValue={birthDayValue}
-              name="birthDayValue"
+              inputValue={birthDay}
+              name="birthDay"
               placeholder="생일 (YYYY-MM-DD)"
               text="생일 필드는 필수 필드입니다."
               handleChange={this.handleChange}
@@ -208,16 +210,18 @@ class SignupMain extends Component {
 
           <SignupInput
             handleGender={this.handleGender}
-            inputValue={phoneNumberValue}
-            name="phoneNumberValue"
+            inputValue={phoneNumber}
+            name="phoneNumber"
             text="휴대폰 필드는 필수 필드입니다."
             placeholder="KR (+82)"
             handleChange={this.handleChange}
           />
+
           <div className="selectBox">
             <div className={isSelectGender ? 'selectTextFalse' : 'selectText'}>
               성별(선택 사항)
             </div>
+
             <SignupSelect
               handleSelected={this.handleGender}
               handleChange={this.handleChange}
@@ -230,25 +234,22 @@ class SignupMain extends Component {
               ]}
             />
           </div>
-
           <SignupInput
-            inputValue={roadNumberValue}
-            name="roadNumberValue"
+            inputValue={roadNumber}
+            name="roadNumber"
             placeholder="도로명 주소"
             handleChange={this.handleChange}
           />
-
           <SignupInput
-            inputValue={addressValue}
-            name="addressValue"
+            inputValue={address}
+            name="address"
             text="상세 주소 필드는 필수 필드입니다."
             placeholder="상세 주소"
             handleChange={this.handleChange}
           />
-
           <SignupInput
-            inputValue={postNumberValue}
-            name="postNumberValue"
+            inputValue={postNumber}
+            name="postNumber"
             placeholder="우편번호"
             handleChange={this.handleChange}
           />
@@ -273,20 +274,18 @@ class SignupMain extends Component {
               ]}
             />
           </div>
-
           <SignupInput
-            inputValue={emailValue}
-            name="emailValue"
+            inputValue={email}
+            name="email"
             text="이메일 필드는 필수 필드입니다."
             placeholder="이메일"
             handleChange={this.handleChange}
           />
-
           <div className="signupFormPassword">
             <SignupInput
               toggleSecret={toggleSecret}
-              inputValue={passwordValue}
-              name="passwordValue"
+              inputValue={password}
+              name="password"
               text="비밀번호 필드는 필수 필드입니다."
               placeholder="비밀번호"
               type="password"
@@ -303,7 +302,7 @@ class SignupMain extends Component {
 
           <div className="signupCheckBoxFirst">
             <SignupCheckBox
-              name="checkAll"
+              name="isAgreementChecked"
               placeholder="(필수) 약관을 모두 읽고 동의합니다."
               checkboxLink="이용약관"
               type="checkbox"
@@ -311,15 +310,14 @@ class SignupMain extends Component {
             />
           </div>
           <SignupCheckBox
-            name="checkUser"
+            name="isPersonalInfoChecked"
             placeholder="(필수) 개인정보 수집 / 이용에 동의합니다."
             checkboxLink="개인정보 수집 / 이용 동의"
             type="checkbox"
             handleCheck={this.handleCheck}
           />
-
           <SignupCheckBox
-            name="checkAgree"
+            name="isConsignmentChecked"
             placeholder="(필수) 개인정보 처리 위탁에 동의합니다."
             checkboxLink="개인정보 처리 위탁"
             type="checkbox"
@@ -327,14 +325,13 @@ class SignupMain extends Component {
           />
           <div className="signupCheckBoxLast">
             <SignupCheckBox
-              name="checkOut"
+              name="isTransferChecked"
               placeholder="(필수) 개인정보 국외이전에 동의합니다."
               checkboxLink="개인정보 국외이전"
               type="checkbox"
               handleCheck={this.handleCheck}
             />
           </div>
-
           <SignupButton
             handleClick={this.handleClick}
             text="입력 정보 제출하기"
