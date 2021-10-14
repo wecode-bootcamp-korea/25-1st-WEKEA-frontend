@@ -21,16 +21,16 @@ class Slider extends React.Component {
   componentDidMount() {
     const { showItem, itemWidth, itemNums, selectedImg } = this.props;
     const viewWidth = this.slider.current.offsetWidth;
-    const selectedImgPosition = -viewWidth * (selectedImg - 1);
+    const selectedImgPosition = -viewWidth * selectedImg;
 
     this.setState({
       itemWidth: showItem ? viewWidth : itemWidth,
       position: selectedImg ? selectedImgPosition : 0,
       viewNums: showItem ? 1 : Math.floor(viewWidth / itemWidth),
       viewWidth: viewWidth,
-      isLeftBtnShow: selectedImg === 1 || !selectedImg ? false : true,
-      isRightBtnShow: !(selectedImg === itemNums),
-      thumbPosition: selectedImg ? -selectedImgPosition / itemNums : 0,
+      isLeftBtnShow: selectedImg === 0 || !selectedImg ? false : true,
+      isRightBtnShow: !(selectedImg === itemNums - 1),
+      thumbPosition: selectedImg + 1 ? -selectedImgPosition / itemNums : 0,
     });
   }
 
@@ -139,14 +139,9 @@ class Slider extends React.Component {
                   className="item"
                   key={product.id}
                   style={itemStyle}
-                  onClick={selectedImg ? null : this.clickItem}
+                  onClick={selectedImg + 1 ? null : this.clickItem}
                 >
-                  <img
-                    src={`/image/${
-                      selectedImg ? product.url : product.img[0].url
-                    }`}
-                    alt="상품 이미지"
-                  />
+                  <img src={product.product_image} alt="상품 이미지" />
                   <div className="title">{product.name}</div>
                   <div>{product.description}</div>
                   <div className="price-wrapper">

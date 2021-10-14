@@ -3,16 +3,8 @@ import LoginLinkBox from './LoginLinkBox';
 
 export default class LoginInput extends Component {
   state = {
-    isPasswordSectetOnOff: false,
     handleOnBlur: false,
     handleOnFocus: false,
-  };
-
-  handleSecret = e => {
-    const { isPasswordSectetOnOff } = this.state;
-    this.setState({
-      isPasswordSectetOnOff: !isPasswordSectetOnOff,
-    });
   };
 
   handleBlur = e => {
@@ -26,9 +18,10 @@ export default class LoginInput extends Component {
     });
   };
   render() {
-    const { isPasswordSectetOnOff, handleOnBlur, handleOnFocus } = this.state;
+    const { handleOnBlur, handleOnFocus } = this.state;
 
     const {
+      isPasswordSectetOnOff,
       name,
       handleChange,
       warnText,
@@ -40,7 +33,7 @@ export default class LoginInput extends Component {
       inputValue,
     } = this.props;
     return (
-      <div>
+      <>
         <input
           inputValue={inputValue}
           name={name}
@@ -54,7 +47,7 @@ export default class LoginInput extends Component {
           value={value}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
 
         {inputValue.length === 0 && handleOnBlur ? (
@@ -63,22 +56,8 @@ export default class LoginInput extends Component {
           <div className="loginWarnText">{warnText}</div>
         )}
 
-        <span
-          className={
-            inputValue.length > 0 && handleOnFocus && handleOnBlur
-              ? 'passwordEye'
-              : 'passwordEyeFalse'
-          }
-          onClick={this.handleSecret}
-        >
-          {isPasswordSectetOnOff ? (
-            <i class="far fa-eye-slash"></i>
-          ) : (
-            <i class="far fa-eye"></i>
-          )}
-        </span>
         <LoginLinkBox linkText={linkText} subtext={subtext} />
-      </div>
+      </>
     );
   }
 }
