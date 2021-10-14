@@ -3,7 +3,7 @@ import FilterList from './FilterList';
 
 class FilterBtn extends Component {
   render() {
-    const { item, currentBtn, buttonOn } = this.props;
+    const { item, currentBtn, buttonOn, handleFilter } = this.props;
     const { name, list } = item;
     const isMatch = currentBtn === name;
     return (
@@ -20,7 +20,14 @@ class FilterBtn extends Component {
             onClick={buttonOn}
           ></i>
         </button>
-        {isMatch && <FilterList id={name} name={name} list={list} />}
+        {isMatch && (
+          <FilterList
+            id={name}
+            name={name}
+            list={list}
+            handleFilter={handleFilter}
+          />
+        )}
       </div>
     );
   }
