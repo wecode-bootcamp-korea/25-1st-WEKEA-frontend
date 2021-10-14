@@ -20,9 +20,12 @@ class FilterBar extends Component {
     });
   };
 
+  button;
+
   render() {
     const { buttonOn, buttonOff } = this;
     const { currentBtn } = this.state;
+    const { handleFilter } = this.props;
 
     return (
       <div className="FilterBar">
@@ -33,6 +36,7 @@ class FilterBar extends Component {
             currentBtn={currentBtn}
             buttonOn={buttonOn}
             buttonOff={buttonOff}
+            handleFilter={handleFilter}
           />
         ))}
       </div>
@@ -41,7 +45,14 @@ class FilterBar extends Component {
 }
 
 const FILTER_BTNS = [
-  { name: '정렬', list: ['낮은 가격순', '최고 가격순', '이름'] },
+  {
+    name: '정렬',
+    list: [
+      ['낮은 가격순', 'price_low_to_high'],
+      ['최고 가격순', 'price_high_to_low'],
+      ['이름 ', 'name_ascending'],
+    ],
+  },
   { name: '사이즈', list: [] },
   { name: '가격', list: [] },
 ];
