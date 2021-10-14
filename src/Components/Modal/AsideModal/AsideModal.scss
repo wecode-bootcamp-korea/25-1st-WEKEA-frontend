@@ -7,6 +7,7 @@
     padding: 5rem 3rem 2rem 3rem;
     border-radius: 8px 0 0 8px;
     animation: asideModalOpen 0.3s;
+    overflow-y: auto;
 
     @keyframes asideModalOpen {
       0% {

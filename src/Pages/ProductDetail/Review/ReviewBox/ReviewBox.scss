@@ -1,0 +1,29 @@
+@import '../../../../Styles/variable.scss';
+
+.ReviewBox {
+  padding: 2rem 0;
+  border-bottom: 1px solid #dfdfdf;
+
+  & > div {
+    @include flex(space-between, center);
+    margin-bottom: 0.5rem;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .top,
+  .review {
+    margin-bottom: 2rem;
+  }
+
+  .top {
+    @include flex(space-between);
+    font-size: 12px;
+  }
+
+  .tag {
+    min-width: 57%;
+  }
+}

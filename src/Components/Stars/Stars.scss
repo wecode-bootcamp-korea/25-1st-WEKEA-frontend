@@ -1,0 +1,30 @@
+.Stars {
+  position: relative;
+  height: 20px;
+  font-size: 12px;
+
+  .background,
+  .fill {
+    position: absolute;
+    left: 0;
+
+    i {
+      display: inline;
+      padding: 1px;
+    }
+  }
+
+  .background {
+    i {
+      color: #f5f5f5;
+    }
+
+    .review-length {
+      margin-left: 10px;
+    }
+  }
+
+  .fill i {
+    color: #111111;
+  }
+}

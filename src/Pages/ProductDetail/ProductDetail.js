@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ImageModal from '../../Components/Modal/ImageModal/ImageModal';
 import AsideModal from '../../Components/Modal/AsideModal/AsideModal';
 import Slider from '../../Components/Slider/Slider';
+import Stars from '../../Components/Stars/Stars';
 import './ProductDetail.scss';
 
 const INFORMATION_BTN_LIST = [
@@ -27,7 +28,7 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.5.115:8000/product/${this.props.match.params.id}`, {
+    fetch(`http://10.58.5.115:8000/products/${this.props.match.params.id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -121,13 +122,16 @@ class ProductDetail extends React.Component {
                 {this.makeSummary(product.description)}
               </div>
               <section className="information-section">
-                {INFORMATION_BTN_LIST.map(el => (
+                {INFORMATION_BTN_LIST.map((el, idx) => (
                   <button
                     key={el.id}
                     className="modal-button"
                     onClick={() => this.showAsideModal(el.id)}
                   >
-                    <span className="title">{el.name}</span>
+                    <div>
+                      <span className="title">{el.name}</span>
+                      {idx === 2 ? <Stars reviewList={product.reviews} /> : ''}
+                    </div>
                     <i className="fas fa-arrow-right" />
                   </button>
                 ))}
@@ -170,7 +174,9 @@ class ProductDetail extends React.Component {
                   </span>
                 </div>
               </div>
-              <div className="rating"></div>
+              <button className="rating" onClick={() => this.showAsideModal(3)}>
+                <Stars reviewList={product.reviews} />
+              </button>
             </header>
             <section className="option-section">
               <button
@@ -180,8 +186,8 @@ class ProductDetail extends React.Component {
                 <div>
                   <span className="type title">규격</span>
                   <span className="selected">
-                    {Math.round(+product.size.width / 10) * 10}x
-                    {Math.round(+product.size.length / 10) * 10} cm
+                    {Math.round(+product.sizes[0].width / 10) * 10}x
+                    {Math.round(+product.sizes[0].length / 10) * 10} cm
                   </span>
                 </div>
                 <i className="fas fa-angle-right" />

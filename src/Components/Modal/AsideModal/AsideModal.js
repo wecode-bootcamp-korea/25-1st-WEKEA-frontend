@@ -13,13 +13,13 @@ class AsideModal extends React.Component {
       case 1:
         return <Description description={product.description} />;
       case 2:
-        return <Size size={product.size} />;
+        return <Size size={product.sizes[0]} />;
       case 3:
-        return <Review />;
+        return <Review reviewList={product.reviews} />;
       case 4:
         return (
           <Option
-            option={product.size}
+            option={product.sizes[0]}
             selectedOption={selectedOption}
             changeOption={option => changeOption(option)}
           />
