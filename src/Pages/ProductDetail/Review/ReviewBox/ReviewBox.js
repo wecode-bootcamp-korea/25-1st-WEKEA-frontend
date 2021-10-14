@@ -1,6 +1,6 @@
 import React from 'react';
 import Stars from '../../../../Components/Stars/Stars';
-import GradeBar from './GradeBar/GradeBar';
+import Grade from './Grade/Grade';
 import './ReviewBox.scss';
 
 class ReviewBox extends React.Component {
@@ -9,7 +9,7 @@ class ReviewBox extends React.Component {
   };
 
   render() {
-    const { id, reviewList } = this.props;
+    const { id, reviewList, reviewNum } = this.props;
     const thisReviewList = id
       ? reviewList.filter(x => x.id === id)
       : reviewList;
@@ -17,37 +17,32 @@ class ReviewBox extends React.Component {
     return (
       <div className="ReviewBox">
         <div className="top">
-          <Stars id={id} reviewList={thisReviewList} />
+          <Stars id={id} reviewList={thisReviewList} reviewNum={reviewNum} />
           <span className="date">
-            {id &&
+            {id !== 0 &&
               this.changeFormToDate(thisReviewList[0].created_at.split('T')[0])}
           </span>
         </div>
-        <div className="review">{id && thisReviewList[0].review}</div>
+        <div className="review">{id !== 0 && thisReviewList[0].review}</div>
         <div className="installation">
           <div className="tag">손쉬운 조립</div>
-          <GradeBar grade={thisReviewList[0].installation} />
-          <div className="grade">{thisReviewList[0].installation}</div>
+          <Grade reviewList={thisReviewList[0]} tag="installation" />
         </div>
         <div className="cost">
           <div className="tag">제품 가성비</div>
-          <GradeBar grade={thisReviewList[0].cost_performance} />
-          <div className="grade">{thisReviewList[0].cost_performance}</div>
+          <Grade reviewList={thisReviewList[0]} tag="cost_performance" />
         </div>
         <div className="quality">
           <div className="tag">제품 품질</div>
-          <GradeBar grade={thisReviewList[0].quality} />
-          <div className="grade">{thisReviewList[0].quality}</div>
+          <Grade reviewList={thisReviewList[0]} tag="quality" />
         </div>
         <div className="appearance">
           <div className="tag">제품 외관</div>
-          <GradeBar grade={thisReviewList[0].appearance} />
-          <div className="grade">{thisReviewList[0].appearance}</div>
+          <Grade reviewList={thisReviewList[0]} tag="appearance" />
         </div>
         <div className="function">
           <div className="tag">제품 기능</div>
-          <GradeBar grade={thisReviewList[0].functionality} />
-          <div className="grade">{thisReviewList[0].functionality}</div>
+          <Grade reviewList={thisReviewList[0]} tag="functionality" />
         </div>
       </div>
     );

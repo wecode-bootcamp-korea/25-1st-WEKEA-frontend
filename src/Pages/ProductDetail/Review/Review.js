@@ -21,22 +21,27 @@ class Review extends React.Component {
         calculateAverage(reviewList, 'functionality')) /
       5;
 
-    // const averageObj = [
-    //   {
-    //     installation: calculateAverage(reviewList, 'installation'),
-    //     cost_performance: calculateAverage(reviewList, 'cost_performance'),
-    //     quality: calculateAverage(reviewList, 'quality'),
-    //     appearance: calculateAverage(reviewList, 'appearance'),
-    //     functionality: calculateAverage(reviewList, 'functionality'),
-    //   },
-    // ];
+    const averageObj = [
+      {
+        id: 0,
+        installation: calculateAverage(reviewList, 'installation'),
+        cost_performance: calculateAverage(reviewList, 'cost_performance'),
+        quality: calculateAverage(reviewList, 'quality'),
+        appearance: calculateAverage(reviewList, 'appearance'),
+        functionality: calculateAverage(reviewList, 'functionality'),
+      },
+    ];
 
     return (
       <>
         <h2 className="title">상품평</h2>
         <div className="main">
-          <span className="total-average">{totalAverage}</span>
-          <ReviewBox reviewList={reviewList} />
+          <span className="total-average">{totalAverage.toFixed(1)}</span>
+          <ReviewBox
+            id={0}
+            reviewList={averageObj}
+            reviewNum={reviewList.length}
+          />
           {reviewList.map(review => (
             <ReviewBox key={review.id} id={review.id} reviewList={reviewList} />
           ))}

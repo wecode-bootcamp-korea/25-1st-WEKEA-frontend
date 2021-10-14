@@ -5,7 +5,6 @@ class Option extends React.Component {
   render() {
     const { option, selectedOption, changeOption } = this.props;
 
-    console.log(selectedOption);
     return (
       <>
         <h2 className="title">규격</h2>

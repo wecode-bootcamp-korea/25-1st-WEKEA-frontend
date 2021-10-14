@@ -85,8 +85,6 @@ class ProductDetail extends React.Component {
       isInWishList,
     } = this.state;
 
-    console.log(product);
-
     if (!Object.keys(product).length) return <div>Loading...</div>;
     return (
       <div className="ProductDetail">
@@ -130,7 +128,14 @@ class ProductDetail extends React.Component {
                   >
                     <div>
                       <span className="title">{el.name}</span>
-                      {idx === 2 ? <Stars reviewList={product.reviews} /> : ''}
+                      {idx === 2 ? (
+                        <Stars
+                          reviewList={product.reviews}
+                          reviewNum={product.reviews.length}
+                        />
+                      ) : (
+                        ''
+                      )}
                     </div>
                     <i className="fas fa-arrow-right" />
                   </button>
@@ -175,7 +180,10 @@ class ProductDetail extends React.Component {
                 </div>
               </div>
               <button className="rating" onClick={() => this.showAsideModal(3)}>
-                <Stars reviewList={product.reviews} />
+                <Stars
+                  reviewList={product.reviews}
+                  reviewNum={product.reviews.length}
+                />
               </button>
             </header>
             <section className="option-section">

@@ -17,7 +17,7 @@ class Stars extends React.Component {
   };
 
   render() {
-    const { id, reviewList } = this.props;
+    const { id, reviewList, reviewNum } = this.props;
     const { roundAverage, isHaveHalf, calculateAverage } = this;
     const review = !id
       ? {
@@ -26,8 +26,6 @@ class Stars extends React.Component {
           quality: calculateAverage(reviewList, 'quality'),
           appearance: calculateAverage(reviewList, 'appearance'),
           functionality: calculateAverage(reviewList, 'functionality'),
-          // review: '',
-          // created_at: '',
         }
       : reviewList[0];
 
@@ -45,7 +43,7 @@ class Stars extends React.Component {
           {[...Array(5)].map((i, idx) => (
             <i key={idx} className="fas fa-star" />
           ))}
-          {!id && <span className="review-length">({reviewList.length})</span>}
+          {reviewNum && <span className="review-length">({reviewNum})</span>}
         </span>
         <span className="fill">
           {[...Array(Math.floor(roundAverage(average)))].map((i, idx) => (

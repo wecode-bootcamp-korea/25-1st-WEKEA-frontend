@@ -6,6 +6,17 @@ import Option from '../../../Pages/ProductDetail/Option/Option';
 import './AsideModal.scss';
 
 class AsideModal extends React.Component {
+  constructor() {
+    super();
+    this.modal = React.createRef();
+  }
+
+  clickOutOfArea = e => {
+    if (!this.modal.current.contains(e.target)) {
+      this.props.closeModal();
+    }
+  };
+
   changeComponent = selectedBtn => {
     const { product, selectedOption, changeOption } = this.props;
 
@@ -33,8 +44,8 @@ class AsideModal extends React.Component {
     const { selectedBtn, closeModal } = this.props;
 
     return (
-      <div className="AsideModal modal">
-        <div className="container">
+      <div className="AsideModal modal" onClick={this.clickOutOfArea}>
+        <div className="container" ref={this.modal}>
           <button className="close-button round-button" onClick={closeModal}>
             <i className="fas fa-times" />
           </button>
