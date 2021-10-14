@@ -1,0 +1,20 @@
+@import '../../../Styles/variable.scss';
+
+.option-box {
+  @include flex(space-between, center);
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  min-height: 5.625rem;
+  border: 1px solid #dfdfdf;
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  &.selected,
+  &.selected:hover {
+    border: 2px solid #0058a3;
+  }
+
+  &:hover {
+    border-color: #929292;
+  }
+}
