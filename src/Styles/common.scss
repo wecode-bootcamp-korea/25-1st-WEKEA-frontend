@@ -1,7 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import '../Styles/variable.scss';
 
 * {
   box-sizing: border-box;
   font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
   text-decoration: none;
+}
+
+.ProductDetail,
+.Slider,
+.AsideModal,
+.ImageModal {
+  h2 {
+    font-size: 25px;
+  }
+
+  .title {
+    color: #111111;
+    font-weight: 700;
+  }
+
+  .price-wrapper {
+    display: flex;
+    color: black;
+    font-weight: 700;
+    font-size: 22px;
+
+    .won {
+      margin-right: 4px;
+      font-size: 11px;
+    }
+  }
+
+  .round-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  button {
+    background: none;
+    color: #484848;
+    font-size: 14px;
+    line-height: 1.5;
+    border: none;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .modal-button {
+    @include flex(space-between, center);
+    width: 100%;
+    border-top: 1px solid #dfdfdf;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.15);
+    z-index: 1000;
+
+    .container {
+      position: absolute;
+      background-color: white;
+
+      .close-button {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 20px;
+
+        &:hover {
+          background-color: #efefef;
+        }
+      }
+    }
+  }
 }

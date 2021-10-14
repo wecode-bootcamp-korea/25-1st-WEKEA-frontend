@@ -3,16 +3,13 @@ import './AsideModal.scss';
 
 class AsideModal extends React.Component {
   render() {
-    const { closeAsideModal } = this.props;
+    const { closeModal } = this.props;
 
     return (
       <div className="AsideModal modal">
         <div className="container">
-          <button
-            className="close-button round-button"
-            onClick={closeAsideModal}
-          >
-            <i className="fas fa-times"></i>
+          <button className="close-button round-button" onClick={closeModal}>
+            <i className="fas fa-times" />
           </button>
           <h2 className="title">제품 설명</h2>
           <div className="main">

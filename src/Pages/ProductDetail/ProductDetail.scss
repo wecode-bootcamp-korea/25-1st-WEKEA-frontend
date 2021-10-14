@@ -1,3 +1,5 @@
+@import '../../Styles/variable.scss';
+
 .ProductDetail {
   padding: 0 3rem;
   color: #484848;
@@ -5,104 +7,26 @@
   line-height: 1.5;
   word-break: keep-all;
 
-  h2 {
-    font-size: 25px;
-  }
-
-  .title {
-    color: #111111;
-    font-weight: 700;
-  }
-
-  .price-wrapper {
-    display: flex;
-    color: black;
-    font-weight: 700;
-    font-size: 22px;
-
-    .won {
-      margin-right: 4px;
-      font-size: 11px;
-    }
-  }
-
-  .round-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-
-  button {
-    background: none;
-    color: #484848;
-    font-size: 14px;
-    line-height: 1.5;
-    border: none;
-    cursor: pointer;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  .modal-button {
-    //mixin
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    //
-    width: 100%;
-    border-top: 1px solid #dfdfdf;
-  }
-
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.15);
-    z-index: 1000;
-
-    .container {
-      position: absolute;
-      background-color: white;
-
-      .close-button {
-        position: absolute;
-        top: 20px;
-        right: 40px;
-        font-size: 20px;
-
-        &:hover {
-          background-color: #efefef;
-        }
-      }
-    }
-  }
-
   .detail-main {
     display: flex;
-    align-items: flex-start;
     margin-bottom: 3rem;
 
     .detail-left {
       width: calc(100% - 340px);
 
-      .left-top {
+      .detail-image {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin-bottom: 3rem;
 
         .image-wrapper {
-          display: flex;
-          align-items: center;
+          @include flex(flex-start, center);
           margin: 0 10px 20px 10px;
           //cursor: url(src='../../../public/Image/zoomCursor.png') 20 20, zoom-in;
         }
       }
 
-      .left-middle {
+      .detail-information {
         .summary {
           margin-bottom: 3rem;
           font-size: 20px;
@@ -130,7 +54,7 @@
         }
       }
 
-      .left-bottom {
+      .detail-similar-products {
         h2 {
           margin-bottom: 1.25rem;
         }
@@ -147,7 +71,7 @@
         margin-bottom: 2.5rem;
 
         .package-main {
-          display: flex;
+          @include flex(space-between, flex-start);
 
           .name-wrapper {
             .name {
@@ -202,11 +126,7 @@
         }
 
         .heart-button {
-          //mixin
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          //
+          @include flex(center, center);
           width: 56px;
           height: 56px;
           border: 1px solid #dfdfdf;
@@ -249,6 +169,35 @@
 
     h2 {
       margin-bottom: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: 882px) {
+    .detail-main {
+      flex-direction: column-reverse;
+
+      .detail-left {
+        width: 100%;
+
+        .detail-image {
+          display: block;
+
+          .image-wrapper {
+            display: none;
+            margin: 0;
+
+            &:first-child {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .detail-right {
+        position: relative;
+        margin-left: 0;
+        width: 100%;
+      }
     }
   }
 }
