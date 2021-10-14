@@ -1,0 +1,16 @@
+@import '../../../../Styles/variable.scss';
+
+.Info {
+  padding-right: 30%;
+  line-height: 1.35rem;
+
+  h1 {
+    margin: 1.875rem 0;
+    font-size: 1.875rem;
+    font-weight: bold;
+  }
+
+  span {
+    color: $gray;
+  }
+}

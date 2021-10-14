@@ -1,0 +1,73 @@
+.footer {
+  padding-top: 90px;
+  padding-left: 120px;
+  padding-right: 50px;
+  background-color: #f5f5f5;
+
+  .upfooter {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 140px;
+    border-bottom: 1px solid rgba(205, 203, 203, 0.815);
+
+    .ikeaFamily {
+      h3 {
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      p {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      button {
+        margin-top: 15px;
+        width: 175px;
+        height: 48px;
+        border-radius: 25px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: rgba(0, 0, 0, 0.705);
+        cursor: pointer;
+      }
+    }
+
+    .FooterMenu {
+      h4 {
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      li {
+        margin-bottom: 26px;
+
+        a {
+          color: rgba(0, 0, 0, 0.884);
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: black;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .underFooter {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    p {
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.925);
+      line-height: 20px;
+    }
+  }
+}
