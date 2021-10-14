@@ -9,14 +9,14 @@
     font-size: 14px;
 
     a {
+      margin-right: 80px;
       color: white;
       text-decoration: none;
-      margin-right: 80px;
     }
 
     a:hover {
-      color: white;
       text-decoration: underline;
+      color: white;
     }
   }
 
@@ -40,9 +40,9 @@
       .search {
         display: flex;
         align-items: center;
-        margin: 24px 0;
-        height: 62px;
+        height: 55px;
         width: 70%;
+        margin: 24px 0;
         padding-left: 24px;
         border-radius: 90px;
         background-color: #f4f2f2;
@@ -54,16 +54,17 @@
         }
 
         input {
+          height: 30px;
+          width: 100%;
           margin-left: 10px;
           margin-right: 30px;
-          height: 40px;
-          width: 100%;
+          padding-bottom: 7px;
           border: 0px;
           background-color: transparent;
           font-size: 22px;
 
           &:focus {
-            outline: 0px;
+            outline: none;
           }
 
           &::placeholder {
@@ -73,7 +74,7 @@
       }
 
       .iconComponent {
-        display: inline-flex;
+        display: flex;
         justify-content: space-evenly;
         width: 200px;
 

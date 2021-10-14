@@ -10,7 +10,10 @@ class SignupAside extends Component {
           <span>WEKEA Family</span> 회원 가입
         </h1>
         <p>
-          이미 가입하셨나요? <Link to="/login">로그인 하기</Link>
+          이미 가입하셨나요?{' '}
+          <Link className="asideLink" to="/login">
+            로그인 하기
+          </Link>
         </p>
 
         <SignupImage />

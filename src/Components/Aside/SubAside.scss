@@ -1,40 +1,37 @@
 .article {
   position: absolute;
   top: -0.5px;
-  left: -380px;
+  left: -340px;
   height: 100%;
   background: white;
-  width: 380px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 197px;
+  padding-top: 167px;
   transition: left 0.2s;
   border: 1px solid rgb(224, 221, 221);
   z-index: 1;
 
-  h1 {
-    font-size: 30px;
+  h3 {
+    font-size: 28px;
     font-weight: bold;
     text-decoration: none;
     margin-bottom: 40px;
   }
 
-  .sideProductList {
-    cursor: pointer;
-    font-size: 16px;
-    color: black;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  button {
+    border: 0;
+    background-color: transparent;
+    font-size: 14px;
   }
 
-  li {
-    margin-bottom: 20px;
+  button:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
 .expandShow {
-  left: 430px;
+  left: 340px;
 }
