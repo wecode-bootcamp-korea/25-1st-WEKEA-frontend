@@ -4,7 +4,7 @@ import SignupInput from './SignupInput';
 import SignupSelect from './SignupSelect';
 import SignupButton from './SignupButton';
 import SignupCheckBox from './SignupCheckBox';
-import { API } from '../../config.js';
+import { API } from '../../config';
 
 class SignupMain extends Component {
   state = {
@@ -12,7 +12,7 @@ class SignupMain extends Component {
     firstName: '',
     birthDay: '',
     phoneNumber: '',
-    postNumber: 0,
+    postNumber: '',
     roadNumber: '',
     address: '',
     email: '',

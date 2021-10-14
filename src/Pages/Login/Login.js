@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { API } from '../../config.js';
 import LoginBtn from './LoginBtn';
 import LoginInput from './LoginInput';
 import LoginTextPage from './LoginTextPage';
+import { API } from '../../config';
 
 import './Login.scss';
 

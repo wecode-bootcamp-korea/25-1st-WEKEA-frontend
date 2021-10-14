@@ -4,11 +4,9 @@ class SignupButton extends Component {
   render() {
     const { text, handleClick } = this.props;
     return (
-      <>
-        <button onClick={handleClick} className="signupButton">
-          {text}
-        </button>
-      </>
+      <button onClick={handleClick} className="signupButton">
+        {text}
+      </button>
     );
   }
 }
