@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ItemList.scss';
 
 export default class ItemList extends Component {
@@ -21,17 +22,20 @@ export default class ItemList extends Component {
   render() {
     const { itemList } = this.props;
     const { currentCard } = this.state;
+    const list = itemList.slice(0, -1);
     return (
       <div className="ItemList">
-        {itemList['products'] &&
-          itemList['products'].map(el => (
-            <div
+        {list &&
+          list.map(el => (
+            <Link
               key={el.product_id}
               className="Item"
               onMouseEnter={this.cardOn}
               onMouseLeave={this.cardOff}
             >
-              <input className="checkbox" type="checkbox" name="compare" />{' '}
+              <div id={el.product_id}>
+                <input className="checkbox" type="checkbox" /> <span>비교</span>
+              </div>
               <div class="imgWrapper">
                 <img
                   id={el.product_id}
@@ -56,7 +60,8 @@ export default class ItemList extends Component {
                 <i class="fas fa-shopping-bag"></i>
               )}
               <p className="option">기타 옵션</p>
-            </div>
+              <div className="crossline"></div>
+            </Link>
           ))}
       </div>
     );

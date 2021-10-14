@@ -16,6 +16,8 @@
 }
 
 .Item {
+  text-decoration: none;
+
   position: relative;
   margin: 1rem 0;
   cursor: pointer;
@@ -71,11 +73,31 @@
     bottom: 0.5rem;
     font-size: 2.5rem;
     color: rgb(0, 80, 172);
+    animation: fadein 1s;
   }
 
   .option {
     margin-top: 1rem;
     font-size: 0.8rem;
     color: $gray;
+  }
+
+  .crossline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    content: '';
+    background-color: #dfdfdf;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -4,9 +4,10 @@ import FilterBar from './Filter/FilterBar';
 
 class Header extends Component {
   render() {
+    const { itemList } = this.props;
     return (
       <div className="Header">
-        <Info />
+        <Info itemList={itemList} />
         <FilterBar />
       </div>
     );

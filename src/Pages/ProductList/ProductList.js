@@ -7,37 +7,27 @@ import './ProductList.scss';
 export default class ProductList extends Component {
   state = {
     itemList: [],
-    sliderList: [],
   };
 
   componentDidMount() {
-    // fetch('http://10.58.5.115:8000/products/subcategories?subcategory_id=1', {
-    //   method: 'GET',
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       itemList: data,
-    //     });
-    //   });
-    fetch('', {
+    fetch('http://10.58.5.115:8000/products/subcategories?sub_category_id=1', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          sliderList: data,
+          itemList: data['products'],
         });
       });
   }
   render() {
-    const { itemList, sliderList } = this.state;
-    console.log(this.props);
+    const { itemList } = this.state;
+    console.log(itemList);
     return (
       <div className="ProductList">
-        <Header />
+        <Header itemList={itemList} />
         <ItemList itemList={itemList} />
-        <Slider sliderList={sliderList} />
+        <Slider sliderList={itemList} />
       </div>
     );
   }
