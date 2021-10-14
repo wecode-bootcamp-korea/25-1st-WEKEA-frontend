@@ -30,7 +30,7 @@ export default class Aside extends Component {
   }
 
   render() {
-    const { isVisible, isExpand, toggleSideBar, expandBar, whatIPush } =
+    const { isVisible, isExpand, toggleSideBar, expandBar, selectedBtn } =
       this.props;
     const { category } = this.state;
     return (
@@ -45,32 +45,25 @@ export default class Aside extends Component {
           <ul>
             {category.map((el, index) => {
               return (
-                <Category key={index} name={el.name} expandBar={expandBar} />
+                <>
+                  <Category
+                    id={el.id}
+                    key={index}
+                    name={el.name}
+                    expandBar={expandBar}
+                  />
+                  {selectedBtn === el.id && (
+                    <SubAside
+                      isExpand={isExpand}
+                      selectedBtn={selectedBtn}
+                      category={category}
+                    />
+                  )}
+                </>
               );
             })}
           </ul>
         </div>
-        {whatIPush === '침대/매트리스' && (
-          <SubAside
-            isExpand={isExpand}
-            whatIPush={whatIPush}
-            category={category}
-          />
-        )}
-        {whatIPush === '아웃도어' && (
-          <SubAside
-            isExpand={isExpand}
-            whatIPush={whatIPush}
-            category={category}
-          />
-        )}
-        {whatIPush === '홈오피스' && (
-          <SubAside
-            isExpand={isExpand}
-            whatIPush={whatIPush}
-            category={category}
-          />
-        )}
       </>
     );
   }

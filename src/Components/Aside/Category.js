@@ -3,11 +3,11 @@ import './Category.scss';
 
 export default class Category extends Component {
   render() {
-    const { expandBar, name } = this.props;
+    const { id, expandBar, name } = this.props;
     return (
       <>
         <li>
-          <button className="sideProductList" onClick={expandBar}>
+          <button id={id} className="sideProductList" onClick={expandBar}>
             {name}
           </button>
         </li>

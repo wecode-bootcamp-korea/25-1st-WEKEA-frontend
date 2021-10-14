@@ -8,13 +8,13 @@ export default class Nav extends Component {
     iconList: [],
     isVisible: false,
     isExpand: false,
-    whatIPush: '',
+    selectedBtn: '',
   };
 
   expandBar = e => {
     this.setState({
       isExpand: !this.state.isExpand,
-      whatIPush: e.target.innerText,
+      selectedBtn: e.target.id,
     });
   };
 
@@ -36,7 +36,7 @@ export default class Nav extends Component {
   }
 
   render() {
-    const { whatIPush } = this.state;
+    const { selectedBtn } = this.state;
     return (
       <div className="nav">
         <div className="blackBar">
@@ -69,7 +69,7 @@ export default class Nav extends Component {
             isExpand={this.state.isExpand}
             toggleSideBar={this.toggleSideBar}
             expandBar={this.expandBar}
-            whatIPush={whatIPush}
+            selectedBtn={selectedBtn}
           />
         </div>
       </div>
