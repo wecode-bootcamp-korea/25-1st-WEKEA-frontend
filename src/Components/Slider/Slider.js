@@ -141,7 +141,12 @@ class Slider extends React.Component {
                   style={itemStyle}
                   onClick={selectedImg + 1 ? null : this.clickItem}
                 >
-                  <img src={product.product_image} alt="상품 이미지" />
+                  {product.images && (
+                    <img
+                      src={`../../../Image/${product.images[0].product_image}`}
+                      alt="상품 이미지"
+                    />
+                  )}
                   <div className="title">{product.name}</div>
                   <div>{product.description}</div>
                   <div className="price-wrapper">
