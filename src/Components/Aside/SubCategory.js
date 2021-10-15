@@ -4,12 +4,16 @@ import './SubCategory.scss';
 
 export default class SubCategory extends Component {
   render() {
-    const { subCategories } = this.props;
+    const { subCategories, toggleSideBar } = this.props;
     return (
       <>
         {subCategories.map((el, index) => {
           return (
-            <Link to={`/product-list/${el.id}`} key={index}>
+            <Link
+              to={`/product-list/${el.id}`}
+              key={index}
+              onClick={toggleSideBar}
+            >
               {el.name}
             </Link>
           );
