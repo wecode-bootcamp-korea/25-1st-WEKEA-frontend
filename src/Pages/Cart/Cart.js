@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from '../../Components/Slider/Slider';
+import Loading from '../../Components/Loading/Loading';
 import './Cart.scss';
 
 class Cart extends React.Component {
@@ -43,6 +44,7 @@ class Cart extends React.Component {
   render() {
     const { productList, quantity } = this.state;
 
+    if (!Object.keys(productList).length) return <Loading />;
     return (
       <div className="Cart">
         <div className="cart-main">
