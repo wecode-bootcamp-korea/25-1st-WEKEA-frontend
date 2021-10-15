@@ -109,7 +109,9 @@ class ProductDetail extends React.Component {
         <div className="navigation">
           <span>{product.main_category.name}</span>{' '}
           <i className="fas fa-angle-right" />{' '}
-          <Link to="/">{product.sub_category.name}</Link>
+          <Link to={`/product-list/${product.sub_category.id}}`}>
+            {product.sub_category.name}
+          </Link>
         </div>
         <div className="detail-main">
           <div className="detail-left">
