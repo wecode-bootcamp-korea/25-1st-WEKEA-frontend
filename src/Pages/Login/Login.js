@@ -50,11 +50,11 @@ export default class Login extends Component {
             localStorage.setItem('token', response.access_token);
             this.props.history.push('/');
           } else {
-            alert('id 와 비밀번호를 확인해주세요');
+            alert('ID 와 비밀번호를 확인해주세요');
           }
         });
     } else {
-      alert('id 와 비밀번호를 확인해주세요');
+      alert('ID 와 비밀번호를 확인해주세요');
     }
   };
 

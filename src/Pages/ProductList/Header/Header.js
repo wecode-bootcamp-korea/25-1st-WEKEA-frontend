@@ -4,10 +4,11 @@ import FilterBar from './Filter/FilterBar';
 
 class Header extends Component {
   render() {
+    const { subcategoryInfo, handleFilter } = this.props;
     return (
       <div className="Header">
-        <Info />
-        <FilterBar />
+        <Info subcategoryInfo={subcategoryInfo} />
+        <FilterBar handleFilter={handleFilter} />
       </div>
     );
   }
