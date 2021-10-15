@@ -56,19 +56,22 @@ class Cart extends React.Component {
               </div>
               <div className="product">
                 <div className="image-wrapper">
-                  <img src="/image/detail1.jpg" alt="" />
+                  <img
+                    src="https://cdn.pixabay.com/photo/2017/08/07/09/25/house-2601876_1280.jpg"
+                    alt=""
+                  />
                 </div>
                 <div className="content-wrapper">
                   <div className="information">
                     <div>
                       <Link to="/" className="name">
-                        NIKKEBY 니케뷔
+                        INGEFÄRA 잉에페라
                       </Link>
                       <div className="description">
-                        4칸서랍장, 그레이그린
+                        화분+받침, 실외용/테라코타
                         <br />
-                        84x70 cm
-                        <br />₩ 89,900개
+                        30x40 cm
+                        <br />₩ 5,900개
                       </div>
                     </div>
                     <div className="price">₩ 269,700</div>

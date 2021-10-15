@@ -33,7 +33,7 @@ export default class ItemList extends Component {
             onMouseLeave={this.cardOff}
           >
             <input className="checkbox" type="checkbox" />
-            <div class="imgWrapper">
+            <div className="imgWrapper">
               <img
                 id={el.product_id}
                 src={el.images?.[0]?.['product_image']}
@@ -54,7 +54,7 @@ export default class ItemList extends Component {
               {el.price}
             </span>
             {el.product_id === Number(currentCard) && (
-              <i class="fas fa-shopping-bag"></i>
+              <i className="fas fa-shopping-bag"></i>
             )}
             <p className="option">기타 옵션</p>
           </Link>

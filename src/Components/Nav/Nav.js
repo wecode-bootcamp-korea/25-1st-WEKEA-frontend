@@ -9,6 +9,7 @@ class Nav extends Component {
     isVisible: false,
     isExpand: false,
     selectedBtn: '',
+    searchKeyword: '',
   };
 
   expandBar = e => {
@@ -25,6 +26,27 @@ class Nav extends Component {
     });
   };
 
+  handleSearch = e => {
+    this.setState({
+      searchKeyword: e.target.value,
+    });
+  };
+
+  pressEnter = e => {
+    if (e.code === 'Enter') {
+      fetch(
+        `http://10.58.3.128:7777/products?products_list=3&search=${this.state.searchKeyword}`,
+        {
+          method: 'GET',
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ itemList: data['results'], searchKeyword: '' });
+        });
+    }
+  };
+
   componentDidMount() {
     fetch('/data/IconData.json')
       .then(res => res.json())
@@ -38,6 +60,7 @@ class Nav extends Component {
   render() {
     const { pathname } = this.props.location;
     const { selectedBtn } = this.state;
+    console.log(this.state.searchKeyword);
 
     return (
       <>
@@ -60,7 +83,13 @@ class Nav extends Component {
                 </Link>
                 <div className="search">
                   <i className="fas fa-search"></i>
-                  <input type="text" placeholder="검색어 입력" />
+                  <input
+                    value={this.state.searchKeyword}
+                    type="text"
+                    placeholder="검색어 입력"
+                    onChange={this.handleSearch}
+                    onKeyPress={this.pressEnter}
+                  />
                 </div>
                 <div className="iconComponent">
                   <Link className="icon" to="/login">

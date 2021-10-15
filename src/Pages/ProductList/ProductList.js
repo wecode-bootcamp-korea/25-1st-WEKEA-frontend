@@ -9,7 +9,6 @@ export default class ProductList extends Component {
     itemList: [],
     productList: [],
     filterName: '',
-    example: [],
   };
 
   componentDidMount() {
@@ -35,7 +34,7 @@ export default class ProductList extends Component {
       },
       () => {
         fetch(
-          `http://10.58.0.30:3200/products?products_list=2&sort=${this.state.filterName}`,
+          `http://10.58.3.128:7777/products?products_list=${this.props.match.params.id}&sort=${this.state.filterName}`,
           {
             method: 'GET',
           }

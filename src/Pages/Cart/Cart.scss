@@ -48,11 +48,10 @@
 
           .image-wrapper {
             margin-right: 1rem;
+            object-fit: cover;
 
             img {
-              min-width: 8.75rem;
-              width: auto;
-              height: 8.75rem;
+              width: 8.75rem;
             }
           }
 
