@@ -55,6 +55,7 @@ export default class Aside extends Component {
             isExpand={isExpand}
             selectedBtn={selectedBtn}
             category={category}
+            toggleSideBar={toggleSideBar}
           />
         )}
         {selectedBtn === '아웃도어' && (
@@ -62,6 +63,7 @@ export default class Aside extends Component {
             isExpand={isExpand}
             selectedBtn={selectedBtn}
             category={category}
+            toggleSideBar={toggleSideBar}
           />
         )}
         {selectedBtn === '홈오피스' && (
@@ -69,6 +71,7 @@ export default class Aside extends Component {
             isExpand={isExpand}
             selectedBtn={selectedBtn}
             category={category}
+            toggleSideBar={toggleSideBar}
           />
         )}
       </>
