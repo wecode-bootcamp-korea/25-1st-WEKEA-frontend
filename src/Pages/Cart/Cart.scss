@@ -1,3 +1,5 @@
+@import '../../Styles/variable.scss';
+
 .Cart {
   padding: 0 3rem;
   color: #484848;
@@ -70,11 +72,16 @@
                 font-weight: 700;
               }
 
-              .name:visited {
-                color: #484848;
-              }
-              .name:hover {
-                text-decoration: underline;
+              .name {
+                text-decoration: none;
+
+                &:visited {
+                  color: #484848;
+                }
+
+                &:hover {
+                  text-decoration: underline;
+                }
               }
             }
 
@@ -127,11 +134,7 @@
         }
 
         .summary-price {
-          //빼낼꺼
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          //
+          @include flex(space-between, center);
 
           .price {
             color: #111111;
@@ -142,11 +145,7 @@
       }
 
       .payment-button {
-        //빼낼꺼
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        //
+        @include flex(space-between, center);
         padding: 2.5rem 1.5rem;
         width: 100%;
         border-radius: 4px;
@@ -159,11 +158,7 @@
         }
 
         .button-arrow {
-          //빼낼꺼
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          //
+          @include flex(center, center);
           background-color: white;
         }
 
@@ -172,5 +167,11 @@
         }
       }
     }
+  }
+
+  .cart-plus {
+    margin: 2.5rem 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid #dfdfdf;
   }
 }

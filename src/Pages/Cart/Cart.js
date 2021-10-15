@@ -1,19 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Slider from '../../Components/Slider/Slider';
 import './Cart.scss';
 
 class Cart extends React.Component {
   constructor() {
     super();
-    this.state = { quantity: '1' };
+    this.state = { productList: [], quantity: '1' };
+  }
+
+  componentDidMount() {
+    fetch('/data/productDetailData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productList: data,
+        });
+      });
+
+    // fetch('http://10.58.5.115:8000/user/cart', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     token: '',
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(res => this.setState({ productList: [] }));
   }
 
   handleSelect = e => {
     this.setState({ quantity: e.target.value });
+    // fetch('/', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ quantity: '1' }),
+    // })
+    //   .then(res => res.json())
+    //   .then(res => console.log('성공', res));
   };
 
   render() {
-    console.log(this.state.quantity);
+    const { productList, quantity } = this.state;
+
     return (
       <div className="Cart">
         <div className="cart-main">
@@ -42,13 +71,12 @@ class Cart extends React.Component {
                   <div className="buttons">
                     <select
                       className="quantity-selection"
-                      value={this.state.quantity}
+                      value={quantity}
                       onChange={this.handleSelect}
                     >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="20">20</option>
+                      {[...Array(20)].map((i, idx) => (
+                        <option value={idx + 1}>{idx + 1}</option>
+                      ))}
                     </select>
                     <button className="delete-button">삭제</button>
                   </div>
@@ -76,13 +104,12 @@ class Cart extends React.Component {
                   <div className="buttons">
                     <select
                       className="quantity-selection"
-                      value={this.state.quantity}
+                      value={quantity}
                       onChange={this.handleSelect}
                     >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="20">20</option>
+                      {[...Array(20)].map((i, idx) => (
+                        <option value={idx + 1}>{idx + 1}</option>
+                      ))}
                     </select>
                     <button className="delete-button">삭제</button>
                   </div>
@@ -119,7 +146,14 @@ class Cart extends React.Component {
             </button>
           </div>
         </div>
-        <div className="cart-plus"></div>
+        <div className="cart-plus">
+          <h2 className="title">추천 제품</h2>
+          <Slider
+            productList={productList}
+            itemWidth={window.innerWidth / 5}
+            itemNums={productList.length}
+          />
+        </div>
       </div>
     );
   }
