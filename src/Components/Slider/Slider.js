@@ -141,9 +141,11 @@ class Slider extends React.Component {
                   style={itemStyle}
                   onClick={selectedImg + 1 ? null : this.clickItem}
                 >
-                  {product.images && (
+                  {product.product_image.includes('http') ? (
+                    <img src={product.product_image} alt="상품 이미지" />
+                  ) : (
                     <img
-                      src={`../../../Image/${product.images[0].product_image}`}
+                      src={`../../../Image/${product.product_image}`}
                       alt="상품 이미지"
                     />
                   )}

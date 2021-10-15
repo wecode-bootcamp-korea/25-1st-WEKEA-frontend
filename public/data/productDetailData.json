@@ -4,71 +4,41 @@
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail1.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail1.jpg"
   },
   {
     "id": 2,
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail2.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail2.jpg"
   },
   {
     "id": 3,
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail3.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail3.jpg"
   },
   {
     "id": 4,
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail4.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail4.jpg"
   },
   {
     "id": 5,
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail5.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail5.jpg"
   },
   {
     "id": 6,
     "name": "GRIMSBU 그림스부",
     "description": "침대프레임, 그레이, 150x200 cm",
     "price": 60000,
-    "images": [
-      { "id": 1, "product_image": "detail6.jpg" },
-      { "id": 2, "product_image": "detail2.jpg" },
-      { "id": 3, "product_image": "detail3.jpg" },
-      { "id": 4, "product_image": "detail4.jpg" }
-    ]
+    "product_image": "detail6.jpg"
   }
 ]
