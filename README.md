@@ -58,7 +58,7 @@
 
 ### Backend
 
-- `Phython`, `Django`, `MySQL`, `JWT`, `bcrypt`
+- `Python`, `Django`, `MySQL`, `JWT`, `bcrypt`
 
 </br>
 
