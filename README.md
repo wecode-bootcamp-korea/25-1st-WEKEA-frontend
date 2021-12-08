@@ -118,13 +118,16 @@
 </br>
 
 - 성해호 : `nav` , `aside` 및 `footer` 등을 포함하는 공동 컴포넌트
-  - 공통 Nav, Side-bar, Footer UI 구현
-  - Nav, Side-bar
-    - main 카테고리에 해당하는 sub-category 데이터를 DB로부터 수신하여 리스트업
-    - 조건부 렌더링을 이용해 2단 slide-bar 구현.
-    - path parameter 이용해 페이지 간 이동 기능 구현
-  - Footer
-    - 레이아웃 구현
+
+!["side_bar"](public/Image/side_bar.gif)
+
+- 공통 Nav, Side-bar, Footer UI 구현
+- Nav, Side-bar
+  - main 카테고리에 해당하는 sub-category 데이터를 DB로부터 수신하여 리스트 구현.
+  - 조건부 렌더링을 이용해 2단 slide-bar 구현.
+  - path parameter 이용해 페이지 간 이동 기능 구현
+- Footer
+  - 레이아웃 구현
 
 </br>
 

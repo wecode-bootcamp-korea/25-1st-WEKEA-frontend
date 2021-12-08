@@ -64,7 +64,7 @@ export default class Login extends Component {
 
   render() {
     const { idValue, passwordValue, isPasswordSectetOnOff } = this.state;
-
+    console.log(this.props.location.pathname);
     return (
       <section className="loginMainSection">
         <LoginTextPage />
